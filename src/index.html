@@ -108,7 +108,7 @@
             </li>
         </ul>
         <div class="tab-content border" id="myTabContent">
-            <div class="tab-pane fade show active" id="organization-culture" role="tabpanel" aria-labelledby="organization-culture-tab">
+            <div class="tab-pane fade show active" data-tab-index="0" id="organization-culture" role="tabpanel" aria-labelledby="organization-culture-tab">
                 <table class="table table-bordered table-responsive-sm">
                     <thead>
                     <tr>
@@ -334,7 +334,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="tab-pane fade" id="people" role="tabpanel" aria-labelledby="people-tab">
+            <div class="tab-pane fade" id="people" data-tab-index="1" role="tabpanel" aria-labelledby="people-tab">
                 <table class="table table-bordered table-responsive-sm">
                     <thead>
                     <tr>
@@ -560,7 +560,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="tab-pane fade" id="agile-management" role="tabpanel" aria-labelledby="agile-management-tab">
+            <div class="tab-pane fade" id="agile-management" data-tab-index="2" role="tabpanel" aria-labelledby="agile-management-tab">
                 <table class="table table-bordered table-responsive-sm">
                     <thead>
                     <tr>
@@ -786,7 +786,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="tab-pane fade" id="software-process" role="tabpanel" aria-labelledby="software-process-tab">
+            <div class="tab-pane fade" id="software-process" data-tab-index="3" role="tabpanel" aria-labelledby="software-process-tab">
                 <table class="table table-bordered table-responsive-sm">
                     <thead>
                     <tr>
@@ -1012,7 +1012,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="tab-pane fade" id="tools-infrastructure" role="tabpanel" aria-labelledby="tools-infrastructure-tab">
+            <div class="tab-pane fade" id="tools-infrastructure" data-tab-index="4" role="tabpanel" aria-labelledby="tools-infrastructure-tab">
                 <table class="table table-bordered table-responsive-sm">
                     <thead>
                     <tr>
@@ -1255,12 +1255,11 @@
             </div>
             <div class="col text-right">
                 <div>
-                    <button class="btn btn-outline-secondary btnPrevious" type="button"> < Previous</button>
-                    <button class="btn btn-outline-secondary btnNext" type="button">Next > </button>
+                    <button class="btn btn-outline-secondary btnPrevious" data-tab-index-click="0" type="button"> < Previous</button>
+                    <button class="btn btn-outline-secondary btnNext" data-tab-index-click="1" type="button">Next > </button>
                 </div>
             </div>
         </div>
-
 
     </section>
 </div>

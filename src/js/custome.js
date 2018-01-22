@@ -35,3 +35,4 @@ btnPrevious.on('click', function(e){
     var $targetProp = $('#'+$target.attr('data-previous')+'-tab');
     $targetProp.trigger('click');
 });
+

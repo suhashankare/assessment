@@ -160,17 +160,32 @@ var jsonData = [{
     "Group": "Tools & Infrastructure"
 }]
 
-var groupObject = [];
+var groupBy = function(xs, key) {
+  return xs.reduce(function(rv, x) {
+    (rv[x[key]] = rv[x[key]] || []).push(x);
+    return rv;
+  }, {});
+};
+var groubedByTeam =groupBy(jsonData, 'Group');
+var tabNameList = Object.keys(groubedByTeam);
+console.log("Tab Object",tabNameList);
 
-for( var i = 0; jsonData.length > i ; i++ ){
-    var loopData = jsonData[i];
-    console.log(loopData["Group"]);
-    if(loopData["Group"].tab === groupObject.tab){
-        groupObject.push({ tab: loopData["Group"], data:{}});
-    }
 
-   /* if(loopData["Group"] === "Organization Culture"){
-        groupObject.data = { Index:loopData["Group"]["Index"], Text : loopData["Group"]["Text"], Key: loopData["Group"]["Key"]};
-        console.log(loopData["Group"])
-    }*/
-}
+// An array, object or any data (eg. from an ajax call)
+var users = ['fred', 'barney', 'pebble', 'wilma', 'betty', 'bambam'];
+
+var person = {
+	name: 'fred',
+	occupation: 'quarry worker',
+	hobbies: 'bowling'
+};
+
+// Set the HTML template
+var userlist = _.template($('#userlist').html());
+var bio = _.template($('#bio').html());
+
+/*console.log(userlist(users));
+// render the template using hte data
+$('#tabWrapper').html(userlist(users));
+$('#tabWrapper').after(bio(person));*/
+

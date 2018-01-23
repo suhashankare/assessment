@@ -14,11 +14,24 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/tether.min.js"></script>
     <script src="js/lodash.min.js"></script>
-    <script src="js/template.js"></script>
+
 </head>
 
 <body>
+<script type="text/html" id="userlist">
+    	<ul>
+    		<% _.forEach(users, function(user) { %>
+    			<li><%- user %></li>
+    		<% }); %>
+    	</ul>
+    </script>
 
+    <script type="text/html" id="bio">
+    	<div>
+    		<h1>My name is <%- name %></h1>
+    		<p>I like <%- hobbies %> but hate being a <%- occupation %></p>
+    	</div>
+    </script>
 <div class="container-fluid">
 
     <!--
@@ -39,6 +52,15 @@
            </div>
        </nav>
    </header>
+
+
+
+
+    <section id="template-render">
+        <div id="tabWrapper">
+
+        </div>
+    </section>
     <!--
         Tabbed Elements
     -->
@@ -1307,5 +1329,6 @@
     </section>-->
 </div>
 <script src="assets/js/custome.js"></script>
+<script src="js/template.js"></script>
 </body>
 </html>

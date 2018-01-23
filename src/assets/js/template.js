@@ -160,17 +160,28 @@ var jsonData = [{
     "Group": "Tools & Infrastructure"
 }]
 
-var groupObject = [];
 
-for( var i = 0; jsonData.length > i ; i++ ){
-    var loopData = jsonData[i];
-    console.log(loopData["Group"]);
-    if(loopData["Group"].tab === groupObject.tab){
-        groupObject.push({ tab: loopData["Group"], data:{}});
+var result = jsonData.reduce(function (r, a) {
+    r[a.Group] = r[a.Group] || [];
+    r[a.Group].push(a);
+    return r;
+}, Object.create(null));
+
+
+var tabList = Object.keys(result);
+var defaultActiveTab = tabList[0];
+
+var seDefaultTabActive = function(activeTabName){
+    if(activeTabName === defaultActiveTab ){
+        return 'active';
     }
+};
 
-   /* if(loopData["Group"] === "Organization Culture"){
-        groupObject.data = { Index:loopData["Group"]["Index"], Text : loopData["Group"]["Text"], Key: loopData["Group"]["Key"]};
-        console.log(loopData["Group"])
-    }*/
-}
+// Set the HTML template
+var tabListCompileWithTemplate = _.template($('#tablist').html());
+var tabDataCompileWithTemplate = _.template($('#bio').html());
+
+// render the template using hte data
+$('.tabListConainer').html(tabListCompileWithTemplate(tabList));
+$('.tabListDataContainer').html(tabDataCompileWithTemplate(result));
+

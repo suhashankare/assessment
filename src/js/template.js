@@ -170,6 +170,7 @@ var result = jsonData.reduce(function (r, a) {
 
 var tabList = Object.keys(result);
 var defaultActiveTab = tabList[0];
+console.log(result);
 
 var seDefaultTabActive = function(activeTabName){
     if(activeTabName === defaultActiveTab ){
@@ -177,11 +178,16 @@ var seDefaultTabActive = function(activeTabName){
     }
 };
 
+_.templateSettings = {
+    evaluate:    /\{\{(.+?)\}\}/g,
+    interpolate: /\{\{=(.+?)\}\}/g,
+    escape:      /\{\{-(.+?)\}\}/g
+};
+
 // Set the HTML template
 var tabListCompileWithTemplate = _.template($('#tablist').html());
-var tabDataCompileWithTemplate = _.template($('#bio').html());
+var tabDataCompileWithTemplate = _.template($('#tablistWrapper').html());
 
 // render the template using hte data
 $('.tabListConainer').html(tabListCompileWithTemplate(tabList));
 $('.tabListDataContainer').html(tabDataCompileWithTemplate(result));
-

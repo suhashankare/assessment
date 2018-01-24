@@ -30,6 +30,15 @@
   }
 }
 
+.tabListDataContainer{
+  table{
+    th.selection{
+      width: 6rem;
+      text-align: center;
+    }
+  }
+}
+
 @media (min-width: 576px) {
   .text-right{
     text-align: left;

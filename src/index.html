@@ -21,260 +21,104 @@
 
 
 <script type="text/html" id="tablist">
-
     <ul class="nav nav-pills nav-fill" id="myTab" role="tablist">
-        <% _.forEach(tabList, function(tabName) { %>
+        {{ _.each(tabList, function(tabName) { }}
             <li class="nav-item">
-                <a class="nav-link <%- seDefaultTabActive(tabName)%>" data-tab-index="0" id="<%- tabName.toLowerCase().replace(/ /,'-') %>-tab" data-toggle="tab" href="#organization-culture" role="tab" aria-controls="organization-culture" aria-selected="true"><%- tabName %></a>
+                <a class="nav-link {{=seDefaultTabActive(tabName) }}" data-tab-index="0" id="{{=tabName.toLowerCase().replace(/ /,'-') }}-tab" data-toggle="tab" href="#{{=tabName.toLowerCase().replace(/ /,'-') }}" role="tab" aria-controls="{{=tabName.toLowerCase().replace(/ /,'-') }}" aria-selected="true">{{=tabName }}</a>
             </li>
-        <% }); %>
+        {{ }); }}
     </ul>
-
 </script>
 
-<script type="text/html" id="bio">
-    <div class="tab-content border" id="myTabContent">
-        <div class="tab-pane fade show active" data-tab-index="0" id="organization-culture" role="tabpanel" aria-labelledby="organization-culture-tab">
+<script type="text/html" id="tablistWrapper">
+    {{ _.each(result, function(key, value) { }}
+        <div class="tab-pane fade show {{=seDefaultTabActive(value) }}" data-tab-index="0" id="{{=value.toLowerCase().replace(/ /,'-') }}" role="tabpanel" aria-labelledby="{{=value.toLowerCase().replace(/ /,'-') }}-tab">
             <table class="table table-bordered table-responsive-sm">
                 <thead>
                 <tr>
                     <th scope="col"></th>
                     <th scope="col">Questions</th>
-                    <th scope="col">Strongly Agree</th>
-                    <th scope="col">Agree</th>
-                    <th scope="col">Neutral</th>
-                    <th scope="col">Disagree</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Strongly Disagree</th>
+                    <th scope="col" class="selection">Strongly Agree</th>
+                    <th scope="col" class="selection">Agree</th>
+                    <th scope="col" class="selection">Neutral</th>
+                    <th scope="col" class="selection">Disagree</th>
+                    <th scope="col" class="selection">Last</th>
+                    <th scope="col" class="selection">Strongly Disagree</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>You are open to contract structure that reflects an evolutionary agile development approach, in which requirement and solution evolve over the period.</td>
-                    <td>
-                        <div class="form-check">
-                            <label class="button-container">
-                                <input type="radio" checked="checked" name="organization-q1">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="form-check">
-                            <label class="button-container">
-                                <input type="radio" checked="checked" name="organization-q1">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="form-check">
-                            <label class="button-container">
-                                <input type="radio" checked="checked" name="organization-q1">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="form-check">
-                            <label class="button-container">
-                                <input type="radio" checked="checked" name="organization-q1">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="form-check">
-                            <label class="button-container">
-                                <input type="radio" checked="checked" name="organization-q1">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="form-check">
-                            <label class="button-container">
-                                <input type="radio" checked="checked" name="organization-q1">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>The working software is considered one of the primary success criteria for any project.</td>
-                    <td>
-                        <div class="form-check">
-                            <label class="button-container">
-                                <input type="radio" checked="checked" name="organization-q2">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="form-check">
-                            <label class="button-container">
-                                <input type="radio" checked="checked" name="organization-q2">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="form-check">
-                            <label class="button-container">
-                                <input type="radio" checked="checked" name="organization-q2">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="form-check">
-                            <label class="button-container">
-                                <input type="radio" checked="checked" name="organization-q2">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="form-check">
-                            <label class="button-container">
-                                <input type="radio" name="organization-q2">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="form-check">
-                            <label class="button-container">
-                                <input type="radio" name="organization-q2">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>You practice participative decision making and team involvement in execution to find creative solutions.</td>
-                    <td>
-                        <div class="form-check">
-                            <label class="button-container">
-                                <input type="radio" checked="checked" name="organization-q3">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="form-check">
-                            <label class="button-container">
-                                <input type="radio" name="organization-q3">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="form-check">
-                            <label class="button-container">
-                                <input type="radio" name="organization-q3">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="form-check">
-                            <label class="button-container">
-                                <input type="radio" name="organization-q3">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="form-check">
-                            <label class="button-container">
-                                <input type="radio"  checked="checked" name="organization-q3">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="form-check">
-                            <label class="button-container">
-                                <input type="radio" name="organization-q3">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>You have software development environment that uses configuration and automation tools to deliver working software.</td>
-                    <td>
-                        <div class="form-check">
-                            <label class="button-container">
-                                <input type="radio" checked="checked" name="organization-q4">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="form-check">
-                            <label class="button-container">
-                                <input type="radio"  name="organization-q4">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="form-check">
-                            <label class="button-container">
-                                <input type="radio" name="organization-q4">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="form-check">
-                            <label class="button-container">
-                                <input type="radio"  name="organization-q4">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="form-check">
-                            <label class="button-container">
-                                <input type="radio" name="organization-q4">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="form-check">
-                            <label class="button-container">
-                                <input type="radio" name="organization-q4">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                    </td>
-                </tr>
+                    {{ _.each(key, function(row, col) { }}
+                    <tr>
+                        <th scope="row">{{=col}}</th>
+                        <td>{{=row.Text}}</td>
+                        <td>
+                            <div class="form-check">
+                                <label class="button-container">
+                                    <input type="radio" checked="checked" name="organization-q1">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-check">
+                                <label class="button-container">
+                                    <input type="radio" checked="checked" name="organization-q1">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-check">
+                                <label class="button-container">
+                                    <input type="radio" checked="checked" name="organization-q1">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-check">
+                                <label class="button-container">
+                                    <input type="radio" checked="checked" name="organization-q1">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-check">
+                                <label class="button-container">
+                                    <input type="radio" checked="checked" name="organization-q1">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-check">
+                                <label class="button-container">
+                                    <input type="radio" checked="checked" name="organization-q1">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    {{ }); }}
                 </tbody>
             </table>
-
-            <div class="row">
-                <div class="col">
-                    <div class="alert alert-danger float-left" role="alert">
-                        This is a danger alert—check it out!
-                    </div>
-                </div>
-                <div class="col text-right">
-                    <div>
-                        <button class="btn btn-outline-secondary btnPrevious" data-tab-index-click="0" type="button" disabled> < Previous</button>
-                        <button class="btn btn-outline-secondary btnNext" data-tab-index-click="1" data-next="people"  type="button" >Next > </button>
-                    </div>
-                </div>
-            </div>
         </div>
-    </div>
+    {{ }); }}
+    <div class="row">
+       <div class="col">
+           <div class="alert alert-danger float-left" role="alert">
+               This is a danger alert—check it out!
+           </div>
+       </div>
+       <div class="col text-right">
+           <div>
+               <button class="btn btn-outline-secondary btnPrevious" data-tab-index-click="0" type="button" disabled> < Previous</button>
+               <button class="btn btn-outline-secondary btnNext" data-tab-index-click="1" data-next="people"  type="button" >Next > </button>
+           </div>
+       </div>
+   </div>
+
 </script>
 
 <div class="container-fluid">
@@ -324,7 +168,7 @@
 
     <section>
         <div class="tabListConainer"></div>
-        <div class="tabListDataContainer"></div>
+        <div class="tabListDataContainer tab-content border" id="myTabContent"></div>
     </section>
 
     <!--

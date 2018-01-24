@@ -160,32 +160,28 @@ var jsonData = [{
     "Group": "Tools & Infrastructure"
 }]
 
-var groupBy = function(xs, key) {
-  return xs.reduce(function(rv, x) {
-    (rv[x[key]] = rv[x[key]] || []).push(x);
-    return rv;
-  }, {});
-};
-var groubedByTeam =groupBy(jsonData, 'Group');
-var tabNameList = Object.keys(groubedByTeam);
-console.log("Tab Object",tabNameList);
+
+var result = jsonData.reduce(function (r, a) {
+    r[a.Group] = r[a.Group] || [];
+    r[a.Group].push(a);
+    return r;
+}, Object.create(null));
 
 
-// An array, object or any data (eg. from an ajax call)
-var users = ['fred', 'barney', 'pebble', 'wilma', 'betty', 'bambam'];
+var tabList = Object.keys(result);
+var defaultActiveTab = tabList[0];
 
-var person = {
-	name: 'fred',
-	occupation: 'quarry worker',
-	hobbies: 'bowling'
+var seDefaultTabActive = function(activeTabName){
+    if(activeTabName === defaultActiveTab ){
+        return 'active';
+    }
 };
 
 // Set the HTML template
-var userlist = _.template($('#userlist').html());
-var bio = _.template($('#bio').html());
+var tabListCompileWithTemplate = _.template($('#tablist').html());
+var tabDataCompileWithTemplate = _.template($('#bio').html());
 
-/*console.log(userlist(users));
 // render the template using hte data
-$('#tabWrapper').html(userlist(users));
-$('#tabWrapper').after(bio(person));*/
+$('.tabListConainer').html(tabListCompileWithTemplate(tabList));
+$('.tabListDataContainer').html(tabDataCompileWithTemplate(result));
 

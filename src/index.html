@@ -9,6 +9,7 @@
     <link rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/loader.css">
 
     <script src="js/jquery.min.js"></script>
     <script src="js/hexApi.js"></script>
@@ -33,7 +34,7 @@
 </script>
 
 <script type="text/html" id="tablistWrapper">
-    {{ _.each(result, function(key, value) { }}
+    {{ _.each(groupedData, function(key, value) { }}
         <div class="tab-pane fade show {{=seDefaultTabActive(value) }}" data-tab-index="0" id="{{=value.toLowerCase().replace(/ /,'-') }}" role="tabpanel" aria-labelledby="{{=value.toLowerCase().replace(/ /,'-') }}-tab">
             <table class="table table-bordered table-responsive-sm">
                 <thead>
@@ -169,6 +170,7 @@
 
 
     <section>
+
         <div class="tabListConainer"></div>
         <div class="tabListDataContainer tab-content border" id="myTabContent"></div>
     </section>
@@ -176,5 +178,6 @@
 </div>
 <script src="assets/js/custome.js"></script>
 <script src="js/template.js"></script>
+<div class="loading">Loading&#8230;</div>
 </body>
 </html>

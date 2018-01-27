@@ -7,7 +7,6 @@
 var tabNexValue = 1;
 var tabPreviousValue = 0;
 
-
 /**
  * Global Selector + Variable
  * @type {*|jQuery|HTMLElement}

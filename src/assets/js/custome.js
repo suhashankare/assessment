@@ -24,12 +24,33 @@ var tabHref = $('#myTab').find('.nav-item');
 var tabDiv = $('#myTabContent');
 var totalTab  = tabHref.length;
 
-btnNext.on('click', function(e){
+function previousButton(tabList, buttonName){
+
+    var currentIndexValue = tabList.indexOf(buttonName);
+    var nextIndexValue = currentIndexValue - 1;
+
+    if(tabList[nextIndexValue] !== undefined){
+        return tabList[nextIndexValue].toString().toLowerCase().replace(/( & )| /g,'-');
+    }else{
+        return "disabled";
+    }
+}
+function nextButton(tabList, buttonName){
+    var currentIndexValue = tabList.indexOf(buttonName);
+        var nextIndexValue = currentIndexValue + 1;
+        if(tabList[nextIndexValue] !== undefined){
+            return tabList[nextIndexValue].toString().toLowerCase().replace(/( & )| /g,'-');
+        }{
+            return "disabled";
+    }
+}
+
+$(document).on('click',btnNext, function(e){
     var $target = $(e.target);
     var $targetProp = $('#'+$target.attr('data-next')+'-tab');
     $targetProp.trigger('click');
 });
-btnPrevious.on('click', function(e){
+$(document).on('click',btnPrevious , function(e){
     var $target = $(e.target);
     var $targetProp = $('#'+$target.attr('data-previous')+'-tab');
     $targetProp.trigger('click');

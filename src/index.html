@@ -27,7 +27,7 @@
     <ul class="nav nav-pills nav-fill" id="myTab" role="tablist">
         {{ _.each(tabList, function(tabName) { }}
             <li class="nav-item">
-                <a class="nav-link {{=seDefaultTabActive(tabName) }}" data-tab-index="0" id="{{=tabName.toLowerCase().replace(/ /,'-') }}-tab" data-toggle="tab" href="#{{=tabName.toLowerCase().replace(/ /,'-') }}" role="tab" aria-controls="{{=tabName.toLowerCase().replace(/ /,'-') }}" aria-selected="true">{{=tabName }}</a>
+                <a class="nav-link {{=seDefaultTabActive(tabName) }}" data-tab-index="0" id="{{=tabName.toLowerCase().replace(/( & )| /g,'-') }}-tab" data-toggle="tab" href="#{{=tabName.toLowerCase().replace(/( & )| /g,'-') }}" role="tab" aria-controls="{{=tabName.toLowerCase().replace(/( & )| /g,'-') }}" aria-selected="true">{{=tabName }}</a>
             </li>
         {{ }); }}
     </ul>
@@ -35,7 +35,7 @@
 
 <script type="text/html" id="tablistWrapper">
     {{ _.each(groupedData, function(key, value) { }}
-        <div class="tab-pane fade show {{=seDefaultTabActive(value) }}" data-tab-index="0" id="{{=value.toLowerCase().replace(/ /,'-') }}" role="tabpanel" aria-labelledby="{{=value.toLowerCase().replace(/ /,'-') }}-tab">
+        <div class="tab-pane fade show {{=seDefaultTabActive(value) }}" data-tab-index="0" id="{{=value.toLowerCase().replace(/( & )| /g,'-') }}" role="tabpanel" aria-labelledby="{{=value.toLowerCase().replace(/( & )| /g,'-') }}-tab">
             <table class="table table-bordered table-responsive-sm">
                 <thead>
                 <tr>
@@ -106,21 +106,22 @@
                     {{ }); }}
                 </tbody>
             </table>
+            <div class="row">
+               <div class="col">
+                   <div class="alert alert-danger float-left" role="alert">
+                       This is a danger alert—check it out!
+                   </div>
+               </div>
+               <div class="col text-right">
+                   <div>
+                       <button class="btn btn-outline-secondary btnPrevious" data-tab-index-click="0" data-previous="{{=previousButton(tabList,value)}}" type="button"> < Previous</button>
+                       <button class="btn btn-outline-secondary btnNext" data-tab-index-click="1" data-next="{{=nextButton(tabList,value)}}"  type="button" >Next > </button>
+                   </div>
+               </div>
+           </div>
         </div>
     {{ }); }}
-    <div class="row">
-       <div class="col">
-           <div class="alert alert-danger float-left" role="alert">
-               This is a danger alert—check it out!
-           </div>
-       </div>
-       <div class="col text-right">
-           <div>
-               <button class="btn btn-outline-secondary btnPrevious" data-tab-index-click="0" type="button" disabled> < Previous</button>
-               <button class="btn btn-outline-secondary btnNext" data-tab-index-click="1" data-next="people"  type="button" >Next > </button>
-           </div>
-       </div>
-   </div>
+
 
 </script>
 

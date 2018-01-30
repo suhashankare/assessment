@@ -54,54 +54,16 @@
                     <tr>
                         <th scope="row">{{=col}}</th>
                         <td>{{=row.Text}}</td>
+                        {{ _.forEach([1,2,3,4,5,6], function(radio) { }}
                         <td>
                             <div class="form-check">
-                                <label class="button-container">
-                                    <input type="radio" checked="checked" name="organization-q1">
-                                    <span class="checkmark"></span>
-                                </label>
+                                <p>
+                                    <input type="radio" id="{{=value.toLowerCase().replace(/( & )| /g,'-') }}-{{=radio}}" name="radio-group">
+                                    <label for="{{=value.toLowerCase().replace(/( & )| /g,'-') }}-{{=radio}}"></label>
+                                  </p>
                             </div>
                         </td>
-                        <td>
-                            <div class="form-check">
-                                <label class="button-container">
-                                    <input type="radio" checked="checked" name="organization-q1">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="form-check">
-                                <label class="button-container">
-                                    <input type="radio" checked="checked" name="organization-q1">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="form-check">
-                                <label class="button-container">
-                                    <input type="radio" checked="checked" name="organization-q1">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="form-check">
-                                <label class="button-container">
-                                    <input type="radio" checked="checked" name="organization-q1">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="form-check">
-                                <label class="button-container">
-                                    <input type="radio" checked="checked" name="organization-q1">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                        </td>
+                        {{ }); }}
                     </tr>
                     {{ }); }}
                 </tbody>

@@ -103,3 +103,25 @@
 
 .form-check {
   padding-left: 0; }
+
+/**
+icon Styling
+ */
+.icon {
+  padding: 10px 15px;
+  display: inline-block; }
+
+.icon-organization-culture {
+  background: url("../img/organization-culture.png") left top no-repeat; }
+
+.icon-agile-management {
+  background: url("../img/agile-management.png") left top no-repeat; }
+
+.icon-people {
+  background: url("../img/people.png") left top no-repeat; }
+
+.icon-software-process {
+  background: url("../img/software-process.png") left top no-repeat; }
+
+.icon-tools-infrastructure {
+  background: url("../img/tools-infrastructure.png") left top no-repeat; }

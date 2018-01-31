@@ -1,5 +1,5 @@
 
-.container-fluid{
+.container-fluid {
   padding-right: 0;
   padding-left: 0;
 
@@ -9,30 +9,30 @@
   .nav-pills .nav-link {
     border-radius: 0;
   }
-  .form-control{
+  .form-control {
     border-radius: 0;
   }
-  .btn{
+  .btn {
     border-radius: 0;
   }
   .progress {
     height: 24px;
   }
 
-  #myTab{
-    a{
+  #myTab {
+    a {
       font-size: 1.25rem;
     }
   }
 
-  #myTabContent{
+  #myTabContent {
     padding: 25px;
   }
 }
 
-.tabListDataContainer{
-  table{
-    th.selection{
+.tabListDataContainer {
+  table {
+    th.selection {
       width: 6rem;
       text-align: center;
     }
@@ -40,44 +40,43 @@
 }
 
 @media (min-width: 576px) {
-  .text-right{
+  .text-right {
     text-align: left;
   }
 }
 
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575.99px) {
-  #myTab{
+  #myTab {
     flex-direction: column !important;
   }
 }
 
 // Small devices (landscape phones, less than 768px)
 @media (max-width: 767.99px) {
-  #myTab{
+  #myTab {
     flex-direction: column !important;
   }
 }
 
 // Medium devices (tablets, less than 992px)
 @media (max-width: 991.99px) {
-  #myTab{
+  #myTab {
     flex-direction: column !important;
   }
 }
 
 // Large devices (desktops, less than 1200px)
 @media (max-width: 1199.99px) {
-  #myTab{
+  #myTab {
     flex-direction: column !important;
   }
 }
 
-
 .navbar {
   background-color: #005aab !important;
 
-  .navbar-brand{
+  .navbar-brand {
     background-image: url("../assets/logo.png");
     background-repeat: no-repeat;
     height: 75px;
@@ -88,58 +87,86 @@
 
 [type="radio"]:checked,
 [type="radio"]:not(:checked) {
-    position: absolute;
-    left: -9999px;
+  position: absolute;
+  left: -9999px;
 }
+
 [type="radio"]:checked + label,
-[type="radio"]:not(:checked) + label
-{
-    position: relative;
-    padding-left: 28px;
-    cursor: pointer;
-    line-height: 20px;
-    display: inline-block;
-    color: #666;
+[type="radio"]:not(:checked) + label {
+  position: relative;
+  padding-left: 28px;
+  cursor: pointer;
+  line-height: 20px;
+  display: inline-block;
+  color: #666;
 }
+
 [type="radio"]:checked + label:before,
 [type="radio"]:not(:checked) + label:before {
-    content: '';
-    position: absolute;
-    /*left: 0;*/
-    top: 0;
-    width: 18px;
-    height: 18px;
-    border: 1px solid #ddd;
-    border-radius: 100%;
-    background: #fff;
+  content: '';
+  position: absolute;
+  /*left: 0;*/
+  top: 0;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #ddd;
+  border-radius: 100%;
+  background: #fff;
 }
+
 [type="radio"]:checked + label:after,
 [type="radio"]:not(:checked) + label:after {
-    content: '';
-    width: 10px;
-    height: 10px;
-    background: #45BA84;
-    position: absolute;
-    top: 4px;
-    left: 32px;
-    border-radius: 100%;
-    -webkit-transition: all 0.2s ease;
-    transition: all 0.2s ease;
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: #45BA84;
+  position: absolute;
+  top: 4px;
+  left: 32px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
+
 [type="radio"]:not(:checked) + label:after {
-    opacity: 0;
-    -webkit-transform: scale(0);
-    transform: scale(0);
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
 }
+
 [type="radio"]:checked + label:after {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
 }
-[data-previous="disabled"]{
+
+[data-previous="disabled"] {
   background: #00ce89;
 }
 
 .form-check {
-    padding-left: 0;
+  padding-left: 0;
+}
+
+/**
+icon Styling
+ */
+.icon {
+  padding: 10px 15px;
+  display: inline-block;
+}
+.icon-organization-culture {
+  background: url("../img/organization-culture.png") left top no-repeat;
+}
+.icon-agile-management {
+  background: url("../img/agile-management.png") left top no-repeat;
+}
+.icon-people {
+  background: url("../img/people.png") left top no-repeat;
+}
+.icon-software-process {
+  background: url("../img/software-process.png") left top no-repeat;
+}
+.icon-tools-infrastructure {
+  background: url("../img/tools-infrastructure.png") left top no-repeat;
 }

@@ -56,3 +56,6 @@ $(document).on('click',btnPrevious , function(e){
     $targetProp.trigger('click');
 });
 
+$(document).on('change','input[type=radio]', function() {
+  console.log($(this));
+});

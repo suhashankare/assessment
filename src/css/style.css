@@ -67,7 +67,7 @@
 [type="radio"]:not(:checked) + label:before {
   content: '';
   position: absolute;
-  left: 0;
+  /*left: 0;*/
   top: 0;
   width: 18px;
   height: 18px;
@@ -83,7 +83,7 @@
   background: #45BA84;
   position: absolute;
   top: 4px;
-  left: 4px;
+  left: 32px;
   border-radius: 100%;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease; }

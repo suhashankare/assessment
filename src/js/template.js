@@ -26,31 +26,37 @@ _.templateSettings = {
     interpolate: /\{\{=(.+?)\}\}/g,
     escape:      /\{\{-(.+?)\}\}/g
 };
+var url = 'http://localhost:3000/assets/assessMentData.json';
+var totalCunt = null;
+
 
     $.ajax({
-    url: WEBAPIURL,
-    type: 'GET',
-    dataType: 'json',
-    complete: function(){
-        $(".loading").fadeOut();
-    },
-    success: function (data) {
-        groupedData = result(data);
-        tabList = Object.keys(groupedData);
-        defaultActiveTab = tabList[0];
+        url: url,
+        type: 'GET',
+        dataType: 'json',
+        complete: function(){
+            $(".loading").fadeOut();
+        },
+        success: function (data) {
+            totalCunt  = data.length;
+            groupedData = result(data);
+            tabList = Object.keys(groupedData);
+            defaultActiveTab = tabList[0];
 
-        // Set the HTML template
-        var tabListCompileWithTemplate = _.template($('#tablist').html());
-        var tabDataCompileWithTemplate = _.template($('#tablistWrapper').html());
+            // Set the HTML template
+            var tabListCompileWithTemplate = _.template($('#tablist').html());
+            var tabDataCompileWithTemplate = _.template($('#tablistWrapper').html());
 
-        // render the template using hte data
-        $('.tabListConainer').html(tabListCompileWithTemplate(tabList));
-        $('.tabListDataContainer').html(tabDataCompileWithTemplate(groupedData));
-    },
-    error: function () {
+            // render the template using hte data
+            $('.tabListConainer').html(tabListCompileWithTemplate(tabList));
+            $('.tabListDataContainer').html(tabDataCompileWithTemplate(groupedData));
 
-    }
-});
+            tabList = $('.tab-pane').map(function(i, el) {return $(el).attr('id');}).get();
+        },
+        error: function () {
+
+        }
+    });
 
 
 

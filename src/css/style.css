@@ -99,7 +99,8 @@
   transform: scale(1); }
 
 [data-previous="disabled"] {
-  background: #00ce89; }
+  background: #f1f1f1;
+  color: #ccc; }
 
 .form-check {
   padding-left: 0; }

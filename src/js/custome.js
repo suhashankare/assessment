@@ -85,17 +85,40 @@ $.each($('[name="radio-group-organization-culture-6"]'), function(){
 @todo:
 */
 var selectionData = {};
+
+var progressBarCunter = 0; //  _.uniq(selectionData[getName]);
+
 $(document).on('change','input[type=radio]', function() {
   var $thisName = $(this).attr('name');
   var $thisId = $(this).attr('id');
   var getName = $thisName.replace(/radio-group-/,'').replace(/-\d/,'');
   var checkTabNameInTheTabList = tabList.indexOf(getName);
-  var createNode = selectionData[tabList[checkTabNameInTheTabList]];
-
+  var createNode = (selectionData[tabList[checkTabNameInTheTabList]] !== undefined) ? _.uniq(selectionData[tabList[checkTabNameInTheTabList]]) : selectionData[tabList[checkTabNameInTheTabList]] ;
+  var uniqData;
+console.log(createNode);
   if(!createNode){
-      selectionData[tabList[checkTabNameInTheTabList]] = [$thisId];
+      selectionData[tabList[checkTabNameInTheTabList]] = [$thisName];
+      selectionData[getName].push($thisName);
+      _.uniq(selectionData[getName])
   }else{
-      createNode.push($thisId);
+      //_.uniq(selectionData[getName]);
+      createNode.push($thisName);
   }
+  //console.log(_.uniq(selectionData[getName]))
+  updateProgressBar();
 
 });
+
+/**
+*  Progress Bar Update
+**/
+function updateProgressBar(){
+
+  _.each(selectionData, function(index, value) {
+
+    // console.log(index);
+    // console.log(value);
+    // console.log(_.uniq(selectionData[value]).length);
+  });
+  //return selectionData.length;
+}

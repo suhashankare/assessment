@@ -11,8 +11,8 @@ var tabPreviousValue = 0;
  * Global Selector + Variable
  * @type {*|jQuery|HTMLElement}
  */
-var btnPrevious = $('.btnPrevious');
-var btnNext = $('.btnNext');
+var btnPrevious = $ ( '.btnPrevious' );
+var btnNext = $ ( '.btnNext' );
 
 /**
  * override Previous button event
@@ -20,105 +20,118 @@ var btnNext = $('.btnNext');
  */
 //btnPrevious.attr('disabled',true);
 
-var tabHref = $('#myTab').find('.nav-item');
-var tabDiv = $('#myTabContent');
-var totalTab  = tabHref.length;
+var tabHref = $ ( '#myTab' ).find ( '.nav-item' );
+var tabDiv = $ ( '#myTabContent' );
+var totalTab = tabHref.length;
 var tabList;
 
-function previousButton(tabList, buttonName){
+function previousButton ( tabList , buttonName ) {
 
-    var currentIndexValue = tabList.indexOf(buttonName);
+    var currentIndexValue = tabList.indexOf ( buttonName );
     var nextIndexValue = currentIndexValue - 1;
 
-    if(tabList[nextIndexValue] !== undefined){
-        return tabList[nextIndexValue].toString().toLowerCase().replace(/( & )| /g,'-');
-    }else{
-        return "disabled";
+    if ( tabList[ nextIndexValue ] !== undefined ) {
+        return tabList[ nextIndexValue ].toString ().toLowerCase ().replace ( /( & )| /g , '-' );
     }
-}
-function nextButton(tabList, buttonName){
-    var currentIndexValue = tabList.indexOf(buttonName);
-        var nextIndexValue = currentIndexValue + 1;
-        if(tabList[nextIndexValue] !== undefined){
-            return tabList[nextIndexValue].toString().toLowerCase().replace(/( & )| /g,'-');
-        }{
-          return "disabled";
+    else {
+        return 'disabled';
     }
 }
 
-$('[data-previous="disabled"]').on('click', function(e){
-    e.stopPropagation();
-    e.stopImmediatePropagation();
-})
-
-
-$(document).on('click',btnNext, function(e){
-    var $target = $(e.target);
-    var $targetProp = $('#'+$target.attr('data-next')+'-tab');
-    $targetProp.trigger('click');
-});
-$(document).on('click',btnPrevious , function(e){
-    var $target = $(e.target);
-    var $targetProp = $('#'+$target.attr('data-previous')+'-tab');
-    $targetProp.trigger('click');
-});
-
-
+function nextButton ( tabList , buttonName ) {
+    var currentIndexValue = tabList.indexOf ( buttonName );
+    var nextIndexValue = currentIndexValue + 1;
+    if ( tabList[ nextIndexValue ] !== undefined ) {
+        return tabList[ nextIndexValue ].toString ().toLowerCase ().replace ( /( & )| /g , '-' );
+    }
+    {
+        return 'disabled';
+    }
+}
 
 /**
-* Row Erro Validation
-@todo: Make Dynamic rows selection
-*/
-$.each($('[name="radio-group-organization-culture-6"]'), function(){
- if(!$(this).prop("checked")){
-
-  // highlist error rows
-	$(this).closest("tr").addClass('alert alert-danger');
-
-  // highlist error tab
-  $('#' + $(this).closest("div.tab-pane").attr('id')+'-tab').addClass('alert alert-danger')
-	}
-})
+ * @todo: Find the Solution to set Disabled
+ */
+//$('[data-previous="disabled"]').attr('disabled','disabled');
 
 /**
-* Each Radio Button Selection for validation
-@todo:
-*/
+ * Stop Event Binding on Disabled element events
+ */
+$ ( '[data-previous="disabled"]' ).on ( 'click' , function ( e ) {
+    e.stopPropagation ();
+    e.stopImmediatePropagation ();
+} );
+
+$ ( document ).on ( 'click' , btnNext , function ( e ) {
+    var $target = $ ( e.target );
+    var $targetProp = $ ( '#' + $target.attr ( 'data-next' ) + '-tab' );
+    $targetProp.trigger ( 'click' );
+} );
+$ ( document ).on ( 'click' , btnPrevious , function ( e ) {
+    var $target = $ ( e.target );
+    var $targetProp = $ ( '#' + $target.attr ( 'data-previous' ) + '-tab' );
+    $targetProp.trigger ( 'click' );
+} );
+
+/**
+ * Rows Error Validation
+ @todo: Make Dynamic rows selection
+ */
+$.each ( $ ( '[name="radio-group-organization-culture-6"]' ) , function () {
+    if ( ! $ ( this ).prop ( 'checked' ) ) {
+
+        // highlist error rows
+        $ ( this ).closest ( 'tr' ).addClass ( 'alert alert-danger' );
+
+        // highlist error tab
+        $ ( '#' + $ ( this ).closest ( 'div.tab-pane' ).attr ( 'id' ) + '-tab' ).addClass ( 'alert alert-danger' )
+    }
+} );
+
+/**
+ * Each Radio Button Selection for validation
+ @todo:
+ */
 var selectionData = {};
 
 var progressBarCunter = 0; //  _.uniq(selectionData[getName]);
 
-$(document).on('change','input[type=radio]', function() {
-  var $thisName = $(this).attr('name');
-  var $thisId = $(this).attr('id');
-  var getName = $thisName.replace(/radio-group-/,'').replace(/-\d/,'');
-  var checkTabNameInTheTabList = tabList.indexOf(getName);
-  var createNode = (selectionData[tabList[checkTabNameInTheTabList]] !== undefined) ? _.uniq(selectionData[tabList[checkTabNameInTheTabList]]) : selectionData[tabList[checkTabNameInTheTabList]] ;
-  var uniqData;
-console.log(createNode);
-  if(!createNode){
-      selectionData[tabList[checkTabNameInTheTabList]] = [$thisName];
-      selectionData[getName].push($thisName);
-      _.uniq(selectionData[getName])
-  }else{
-      //_.uniq(selectionData[getName]);
-      createNode.push($thisName);
-  }
-  //console.log(_.uniq(selectionData[getName]))
-  updateProgressBar();
+$ ( document ).on ( 'change' , 'input[type=radio]' , function () {
+    var $thisName = $ ( this ).attr ( 'name' );
+    var $thisId = $ ( this ).attr ( 'id' );
+    var getName = $thisName.replace ( /radio-group-/ , '' ).replace ( /-\d/ , '' );
+    //var checkTabNameInTheTabList = tabList.indexOf ( getName );
+    var getNode =  selectionData[getName];
 
-});
+    getNode.push($thisName);
+    selectionData[getName] = _.uniq(getNode);
+
+    updateProgressBar();
+    manipulateProgressbar();
+} );
 
 /**
-*  Progress Bar Update
-**/
-function updateProgressBar(){
+ *  Progress Bar Update
+ **/
+var progressCounter = Math.floor(100/32*32);
 
-  _.each(selectionData, function(index, value) {
-
-    // console.log(index);
-    // console.log(value);
-    // console.log(_.uniq(selectionData[value]).length);
-  });
-  //return selectionData.length;
+function updateProgressBar () {
+    var counter = 0;
+    _.each ( selectionData , function ( index , value ) {
+        counter += _.uniq(selectionData[value]).length;
+    } );
+    return counter;
 }
+
+/**
+ * update progress bar counter and loader
+ */
+ function manipulateProgressbar(){
+
+    var progrssBarValues = 100 / parseInt(totalCunt)* updateProgressBar();
+    var roundOffValue =  Math.floor(progrssBarValues);
+    var element = $('.progress-bar');
+
+     element.css('width', roundOffValue+'%');
+     element.text(roundOffValue+'%');
+ }

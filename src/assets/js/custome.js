@@ -25,6 +25,36 @@ var tabDiv = $ ( '#myTabContent' );
 var totalTab = tabHref.length;
 var tabList;
 
+
+$(document).on('show.bs.tab',$('a[data-toggle="tab"]'), function (e) {
+ var currentTab = $('.tabListConainer .nav-link.active');
+ var currentTabHref = currentTab.attr('href')
+ var currentTabHDiv = $(currentTabHref);
+
+ var target = $(e.target).attr("href") // activated tab
+ var targetDiv = $(target);
+
+ if(currentTabHDiv.find('tr.not-selected').length){
+   currentTabHDiv.addClass('not-complete');
+   //$('#tavWarningModel').modal('show');
+   $('#tabWarningModel').find(".modal-body").html('<h5>You are not completed few question on <h2>'+ currentTab.text() +' Tab </h2></h5>');
+   $('#tabWarningModel').find(".btn-secondary").text('Stay on the '+ currentTab.text() +' Tab');
+
+   $('#tabWarningModel').find(".btn-secondary").on('click', function(){
+
+        $('.tabListDataContainer').find('.tab-pane').removeClass('acive show');
+        currentTab.trigger('click');
+        $('#tabWarningModel').modal('hide');
+   });
+
+   $('#tabWarningModel').modal('show');
+   $('#tabWarningModel').find(".btn-primary").on('click', function(){
+     $('#tabWarningModel').modal('hide');
+   });
+ }
+
+});
+
 /**
  * default progress bar status
  */
@@ -110,6 +140,9 @@ $ ( document ).on ( 'change' , 'input[type=radio]' , function () {
     //var checkTabNameInTheTabList = tabList.indexOf ( getName );
     var getNode =  selectionData[getName];
 
+    //  Update Class Check for tab error validation
+    $ ( this ).closest('tr').removeClass('not-selected').addClass('selected-ok');
+
     getNode.push($thisName);
     selectionData[getName] = _.uniq(getNode);
 
@@ -153,5 +186,5 @@ function updateProgressBar () {
  * Model Box for confirmation
  */
 function modelLauncher(){
-     $('.modal').modal('show')
+     $('#completeModal').modal('show');
  }

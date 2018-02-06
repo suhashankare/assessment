@@ -177,3 +177,15 @@ icon Styling
 .icon-tools-infrastructure {
   background: url("../img/tools-infrastructure.png") left top no-repeat;
 }
+
+
+.not-complete{
+  .not-selected{
+    background-color: #f7e199;
+  }
+}
+#tabWarningModel{
+  .btn-secondary{
+    width: 100%;
+  }
+}

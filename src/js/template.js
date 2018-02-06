@@ -59,8 +59,3 @@ var totalCunt = null;
 
         }
     });
-
-
-
-
-

@@ -115,6 +115,13 @@ $ ( document ).on ( 'change' , 'input[type=radio]' , function () {
 
     updateProgressBar();
     manipulateProgressbar();
+
+    /**
+     * initialise model box
+     */
+    if(updateProgressBar() === totalCunt){
+        modelLauncher();
+    }
 } );
 
 /**
@@ -140,4 +147,11 @@ function updateProgressBar () {
 
     progressbar.css('width', roundOffValue+'%');
     progressbar.text(roundOffValue+'%');
+ }
+
+/**
+ * Model Box for confirmation
+ */
+function modelLauncher(){
+     $('.modal').modal('show')
  }

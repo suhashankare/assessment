@@ -25,6 +25,13 @@ var tabDiv = $ ( '#myTabContent' );
 var totalTab = tabHref.length;
 var tabList;
 
+/**
+ * default progress bar status
+ */
+var progressbar = $('.progress-bar');
+progressbar.css('width', '0%');
+progressbar.text(0 +'%');
+
 function previousButton ( tabList , buttonName ) {
 
     var currentIndexValue = tabList.indexOf ( buttonName );
@@ -130,8 +137,7 @@ function updateProgressBar () {
 
     var progrssBarValues = 100 / parseInt(totalCunt)* updateProgressBar();
     var roundOffValue =  Math.floor(progrssBarValues);
-    var element = $('.progress-bar');
 
-     element.css('width', roundOffValue+'%');
-     element.text(roundOffValue+'%');
+    progressbar.css('width', roundOffValue+'%');
+    progressbar.text(roundOffValue+'%');
  }

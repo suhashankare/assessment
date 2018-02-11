@@ -161,6 +161,7 @@ icon Styling
 .icon {
   padding: 10px 15px;
   display: inline-block;
+  background-color: inherit;
 }
 .icon-organization-culture {
   background: url("../img/organization-culture.png") left top no-repeat;
@@ -188,4 +189,42 @@ icon Styling
   .btn-secondary{
     width: 100%;
   }
+}
+.tabListConainer{
+  li.nav-item{
+    position: relative;
+    color: #007bff;
+    a.active{
+      width: 96%;
+    }
+  }
+  li.nav-item{
+    position: relative;
+    color: #084a90;
+    a{
+      width: 96%;
+      background-color: #ecf1f7;
+    }
+  }
+  li.nav-item::after {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 1px;
+    display: block;
+    border-left: 15px solid #007bff;
+    border-top: 22px solid transparent;
+    border-bottom: 25px solid transparent;
+    width: 0;
+    height: 0;
+    content: " ";
+  }
+}
+
+.arrow-right{
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid blue;
 }

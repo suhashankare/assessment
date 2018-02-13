@@ -14,7 +14,7 @@
   .container-fluid #myTab a {
     font-size: 1.25rem; }
   .container-fluid #myTabContent {
-    padding: 25px; }
+    /*  padding: 25px;*/ }
 
 .tabListDataContainer table th.selection {
   width: 6rem;
@@ -41,7 +41,7 @@
     flex-direction: column !important; } }
 
 .navbar {
-  background-color: #005aab !important; }
+  background-color: #285ca4 !important; }
   .navbar .navbar-brand {
     background-image: url("../assets/logo.png");
     background-repeat: no-repeat;
@@ -109,9 +109,11 @@
 icon Styling
  */
 .icon {
-  padding: 10px 15px;
+  padding: 15px 15px;
   display: inline-block;
-  background-color: inherit; }
+  background-color: inherit;
+  filter: invert(50%);
+  vertical-align: middle; }
 
 .icon-organization-culture {
   background: url("../img/organization-culture.png") left top no-repeat; }
@@ -131,38 +133,24 @@ icon Styling
 .not-complete .not-selected {
   background-color: #f7e199; }
 
-#tabWarningModel .btn-secondary {
+.nav-pills {
+  background-color: #f9e4a7; }
+  .nav-pills a {
+    color: #807878; }
+
+.nav-item a.active .icon {
+  filter: invert(0%); }
+
+#tabWarningModel .btn:not([disabled]):not(.disabled) {
+  cursor: pointer;
   width: 100%; }
 
-.tabListConainer li.nav-item {
-  position: relative;
-  color: #007bff; }
-  .tabListConainer li.nav-item a.active {
-    width: 96%; }
+thead {
+  background-color: #f1f1f1; }
 
-.tabListConainer li.nav-item {
-  position: relative;
-  color: #084a90; }
-  .tabListConainer li.nav-item a {
-    width: 96%;
-    background-color: #ecf1f7; }
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #285ca4; }
 
-.tabListConainer li.nav-item::after {
-  z-index: 1;
-  position: absolute;
-  top: 0;
-  right: 1px;
-  display: block;
-  border-left: 15px solid #007bff;
-  border-top: 22px solid transparent;
-  border-bottom: 25px solid transparent;
-  width: 0;
-  height: 0;
-  content: " "; }
-
-.arrow-right {
-  width: 0;
-  height: 0;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 10px solid blue; }
+.bg-warning {
+  background-color: #6ab783 !important; }

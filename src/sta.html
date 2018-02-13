@@ -24,7 +24,7 @@
 
 
 <script type="text/html" id="tablist">
-    <ul class="nav nav-pills nav-fill" id="myTab" role="tablist">
+    <ul class="nav nav-pills nav-fill nav-wizard" id="myTab" role="tablist">
         {{ _.each(tabList, function(tabName) { }}
         <li class="nav-item">
             <a class="nav-link {{=seDefaultTabActive(tabName) }}" data-tab-index="0"
@@ -83,7 +83,7 @@
                     You have not answered question 3 from Organization Culture section(s).
                 </div>
             </div> -->
-            <div class="col text-right">
+            <div class="col text-center">
                 <div>
                     <button class="btn btn-outline-secondary btnPrevious" data-tab-index-click="0"
                             data-previous="{{=previousButton(tabList,value)}}" type="button"> < Previous
@@ -119,6 +119,7 @@
                      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                  </form>-->
             </div>
+            <!--<p>Please provide response to each question listed under various tabs below. It will help us assess your Agile Maturity.</p>-->
         </nav>
     </header>
     <!--
@@ -152,7 +153,7 @@
     <section>
 
         <div class="tabListConainer"></div>
-        <div class="tabListDataContainer tab-content border" id="myTabContent"></div>
+        <div class="tabListDataContainer tab-content" id="myTabContent"></div>
     </section>
 
         <!-- Modal -->
@@ -182,12 +183,12 @@
     <div class="modal fade" id="tabWarningModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <div class="modal-header badge-warning">
+         <!-- <div class="modal-header badge-warning">
             <h5 class="modal-title" id="exampleModalLabel">Incomplete Alert!</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
-          </div>
+          </div>-->
           <div class="modal-body">
             ...
           </div>

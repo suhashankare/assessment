@@ -152,7 +152,7 @@ $(document).on('change', 'input[type=radio]', function () {
   /**
    * initialise model box
    */
-  if (updateProgressBar() === 1) {
+  if (updateProgressBar() === totalCunt) {
       $('.btnNext').text('Submit');
     modelLauncher();
 

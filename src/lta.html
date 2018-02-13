@@ -5,17 +5,18 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800">
-    <link rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/googleFont.css">
+    <link rel='stylesheet' href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/loader.css">
 
+    <script src="js/lodash.min.js"></script>
     <script src="js/jquery.min.js"></script>
-    <script src="js/hexApi.js"></script>
+    <!--<script src="js/hexApi.js"></script>-->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/tether.min.js"></script>
-    <script src="js/lodash.min.js"></script>
+
 
 </head>
 
@@ -23,7 +24,7 @@
 
 
 <script type="text/html" id="tablist">
-    <ul class="nav nav-pills nav-fill" id="myTab" role="tablist">
+    <ul class="nav nav-pills nav-fill nav-wizard" id="myTab" role="tablist">
         {{ _.each(tabList, function(tabName) { }}
         <li class="nav-item">
             <a class="nav-link {{=seDefaultTabActive(tabName) }}" data-tab-index="0"
@@ -57,7 +58,7 @@
             </thead>
             <tbody>
             {{ _.each(key, function(row, col) { }}
-            <tr>
+            <tr class="not-selected">
                 <th scope="row">{{=col + 1}}</th>
                 <td>{{=row.Text}}</td>
                 {{ _.forEach([1,2,3,4,5,6], function(radio) { }}
@@ -77,12 +78,12 @@
             </tbody>
         </table>
         <div class="row">
-            <div class="col">
+            <!-- <div class="col">
                 <div class="alert alert-danger float-left" role="alert">
                     You have not answered question 3 from Organization Culture section(s).
                 </div>
-            </div>
-            <div class="col text-right">
+            </div> -->
+            <div class="col text-center">
                 <div>
                     <button class="btn btn-outline-secondary btnPrevious" data-tab-index-click="0"
                             data-previous="{{=previousButton(tabList,value)}}" type="button"> < Previous
@@ -118,6 +119,7 @@
                      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                  </form>-->
             </div>
+            <!--<p>Please provide response to each question listed under various tabs below. It will help us assess your Agile Maturity.</p>-->
         </nav>
     </header>
     <!--
@@ -151,8 +153,52 @@
     <section>
 
         <div class="tabListConainer"></div>
-        <div class="tabListDataContainer tab-content border" id="myTabContent"></div>
+        <div class="tabListDataContainer tab-content" id="myTabContent"></div>
     </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="completeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Agile STA Assesment</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h4> Thank you!. </h4>
+                    You have completed Agile STA Assessment
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Review all Questions Answer</button>
+                    <button type="button" class="btn btn-primary"> Okey! Submit My Assessment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="tabWarningModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <!-- <div class="modal-header badge-warning">
+                   <h5 class="modal-title" id="exampleModalLabel">Incomplete Alert!</h5>
+                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                   </button>
+                 </div>-->
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning btn-secondary" data-dismiss="modal">Stay On This Tab</button>
+                    <button type="button" class="btn btn-dark btn-primary">Will Visit Back </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
 <script src="assets/js/custome.js"></script>

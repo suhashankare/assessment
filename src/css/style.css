@@ -138,8 +138,14 @@ icon Styling
   .nav-pills a {
     color: #807878; }
 
-.nav-item a.active .icon {
-  filter: invert(0%); }
+.nav-item {
+  position: relative; }
+  .nav-item .custom-badge {
+    position: absolute;
+    top: -10px;
+    right: 15px; }
+  .nav-item a.active .icon {
+    filter: invert(0%); }
 
 #tabWarningModel .btn:not([disabled]):not(.disabled) {
   cursor: pointer;

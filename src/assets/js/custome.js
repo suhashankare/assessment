@@ -24,6 +24,7 @@ var btnNext = $('.btnNext');
 //var tabDiv = $('#myTabContent');
 //var totalTab = tabHref.length;
 var tabList;
+$('.custom-badge').hide();
 
 $(document).on('show.bs.tab', $('a[data-toggle="tab"]'), function (e) {
   var currentTab = $('.tabListConainer .nav-link.active');
@@ -35,22 +36,13 @@ $(document).on('show.bs.tab', $('a[data-toggle="tab"]'), function (e) {
   var $tabModel = $('#tabWarningModel');
 
   if (currentTabHDiv.find('tr.not-selected').length) {
-    //$('#tavWarningModel').modal('show');
-    $tabModel.find('.modal-body').html('<h5>You are not completed few question on <h2>' + currentTab.text() + ' Tab </h2></h5>');
-    $tabModel.find('.btn-secondary').text('Stay on the ' + currentTab.text() + ' Tab');
-
-    $tabModel.find('.btn-secondary').on('click', function () {
-      $('.tabListDataContainer').find('.tab-pane').removeClass('active show');
-      currentTab.trigger('click');
-      currentTabHDiv.addClass('not-complete');
-      $('#tabWarningModel').modal('hide');
-    });
-
-    $tabModel.modal('show');
-    $tabModel.find('.btn-primary').on('click', function () {
-      targetDiv.removeClass('not-complete');
-      $('#tabWarningModel').modal('hide');
-    });
+    currentTabHDiv.addClass('not-complete');
+    currentTab.closest('.nav-item').addClass('not-complete');
+    currentTab.closest('.nav-item').find('.custom-badge').text('x');
+  }else{
+    targetDiv.removeClass('not-complete');
+    targetDiv.closest('.nav-item').removeClass('not-complete');
+    targetDiv.closest('.nav-item').find('.custom-badge').text('-/');
   }
 });
 

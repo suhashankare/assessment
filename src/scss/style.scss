@@ -196,6 +196,12 @@ icon Styling
   }
 }
 .nav-item{
+  position: relative;
+  .custom-badge{
+    position: absolute;
+    top:-10px;
+    right: 15px;
+  }
   a.active{
     .icon{
       filter: invert(0%);

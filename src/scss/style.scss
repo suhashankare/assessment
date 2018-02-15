@@ -14,6 +14,7 @@
   }
   .btn {
     border-radius: 0;
+    width: 100px;
   }
   .progress {
     height: 24px;
@@ -27,6 +28,12 @@
 
   #myTabContent {
   /*  padding: 25px;*/
+  }
+
+  h3{
+    font-size: 33.333333333333336px; // 25pt
+    color: #ffffff;
+    margin-left: 45px;
   }
 }
 
@@ -74,7 +81,14 @@
 }
 
 .navbar {
-  background-color: #285ca4 !important;
+  background-color: #19334d !important;
+  position: relative;
+
+  .info-icon{
+    position: absolute;
+    background: url("../img/information.png") left top no-repeat;
+    right: 20px;
+  }
 
   .navbar-brand {
     background-image: url("../assets/logo.png");
@@ -185,7 +199,7 @@ icon Styling
 
 .not-complete{
   .not-selected{
-    background-color: #f7e199;
+    background-color: rgba(253, 183, 29, 0.2);
   }
 }
 
@@ -225,4 +239,15 @@ thead{
 }
 .bg-warning {
   background-color: #6ab783 !important;
+}
+
+.table-bordered th, .table-bordered td {
+  border: 1px solid #dee2e6;
+  padding: 20px 10px;
+}
+.progress-bar-container{
+  margin: 35px 20% !important;
+  .progress{
+    border-radius: 15px;
+  }
 }

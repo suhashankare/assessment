@@ -8,13 +8,18 @@
   .container-fluid .form-control {
     border-radius: 0; }
   .container-fluid .btn {
-    border-radius: 0; }
+    border-radius: 0;
+    width: 100px; }
   .container-fluid .progress {
     height: 24px; }
   .container-fluid #myTab a {
     font-size: 1.25rem; }
   .container-fluid #myTabContent {
     /*  padding: 25px;*/ }
+  .container-fluid h3 {
+    font-size: 33.333333333333336px;
+    color: #ffffff;
+    margin-left: 45px; }
 
 .tabListDataContainer table th.selection {
   width: 6rem;
@@ -41,7 +46,12 @@
     flex-direction: column !important; } }
 
 .navbar {
-  background-color: #285ca4 !important; }
+  background-color: #19334d !important;
+  position: relative; }
+  .navbar .info-icon {
+    position: absolute;
+    background: url("../img/information.png") left top no-repeat;
+    right: 20px; }
   .navbar .navbar-brand {
     background-image: url("../assets/logo.png");
     background-repeat: no-repeat;
@@ -131,7 +141,7 @@ icon Styling
   background: url("../img/tools-infrastructure.png") left top no-repeat; }
 
 .not-complete .not-selected {
-  background-color: #f7e199; }
+  background-color: rgba(253, 183, 29, 0.2); }
 
 .nav-pills {
   background-color: #f9e4a7; }
@@ -160,3 +170,12 @@ thead {
 
 .bg-warning {
   background-color: #6ab783 !important; }
+
+.table-bordered th, .table-bordered td {
+  border: 1px solid #dee2e6;
+  padding: 20px 10px; }
+
+.progress-bar-container {
+  margin: 35px 20% !important; }
+  .progress-bar-container .progress {
+    border-radius: 15px; }

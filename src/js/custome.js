@@ -182,3 +182,5 @@ function manipulateProgressbar () {
 function modelLauncher () {
   $('#completeModal').modal('show');
 }
+
+$('.info-icon').popover();

@@ -13,9 +13,10 @@
   "author": "suhasha@hexaware.com",
   "license": "ISC",
   "dependencies": {
-    "jquery": "^3.2.1",
     "bootstrap": "^4.0.0-beta.3",
-    "lodash": "^4.17.4"
+    "jquery": "^3.2.1",
+    "lodash": "^4.17.4",
+    "tooltip.js": "^1.1.7"
   },
   "devDependencies": {
     "browser-sync": "^2.23.5",

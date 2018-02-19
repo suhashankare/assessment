@@ -12,7 +12,10 @@
     <link rel="stylesheet" href="css/loader.css">
 
     <script src="js/lodash.min.js"></script>
+
     <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+
     <!--<script src="js/hexApi.js"></script>-->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/tether.min.js"></script>
@@ -110,9 +113,10 @@
             <a class="navbar-brand" href="#"></a>
             <h3>Agile Maturity Quick Assessment</h3>
 
-            <div class="icon info-icon"  data-toggle="tooltip" data-placement="left" title="Please provide response to each question listed under various tabs below. It will help us assess your Agile Maturity.">
-            </div>
-
+            <button class="icon info-icon"  data-toggle="popover" data-trigger="focus" data-container="body" data-placement="left"
+                    data-content="Please provide response to each question listed under various tabs below. It will help us assess your Agile Maturity.">
+            </button>
+           
         </nav>
     </header>
     <!--
@@ -187,6 +191,7 @@
     </div>
 
 </div>
+
 <script src="assets/js/custome.js"></script>
 <script src="js/template.js"></script>
 <div class="loading">Loading&#8230;</div>

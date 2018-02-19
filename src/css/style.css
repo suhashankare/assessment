@@ -4,7 +4,8 @@
   .container-fluid section {
     margin: 20px; }
   .container-fluid .nav-pills .nav-link {
-    border-radius: 0; }
+    border-radius: 15px 15px 0px 0px;
+    box-shadow: 0 -5px 30px -16px black; }
   .container-fluid .form-control {
     border-radius: 0; }
   .container-fluid .btn {
@@ -144,7 +145,7 @@ icon Styling
   background-color: rgba(253, 183, 29, 0.2); }
 
 .nav-pills {
-  background-color: #f9e4a7; }
+  /*background-color: #f9e4a7;*/ }
   .nav-pills a {
     color: #807878; }
 
@@ -179,3 +180,9 @@ thead {
   margin: 35px 20% !important; }
   .progress-bar-container .progress {
     border-radius: 15px; }
+
+h2 {
+  background-color: #285ca4;
+  color: #ffffff;
+  padding: 30px 40px;
+  margin-bottom: 0; }

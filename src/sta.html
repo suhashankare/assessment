@@ -43,9 +43,13 @@
 
 <script type="text/html" id="tablistWrapper">
     {{ _.each(groupedData, function(key, value) { }}
+
     <div class="tab-pane fade show {{=seDefaultTabActive(value) }}" data-tab-index="0"
          id="{{=value.toLowerCase().replace(/( & )| /g,'-') }}" role="tabpanel"
          aria-labelledby="{{=value.toLowerCase().replace(/( & )| /g,'-') }}-tab">
+
+        <h2>{{=value}}</h2>
+
         <table class="table table-bordered table-responsive-sm">
             <thead>
             <tr>
@@ -116,7 +120,7 @@
             <button class="icon info-icon"  data-toggle="popover" data-trigger="focus" data-container="body" data-placement="left"
                     data-content="Please provide response to each question listed under various tabs below. It will help us assess your Agile Maturity.">
             </button>
-           
+
         </nav>
     </header>
     <!--

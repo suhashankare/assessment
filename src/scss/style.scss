@@ -7,7 +7,8 @@
     margin: 20px;
   }
   .nav-pills .nav-link {
-    border-radius: 0;
+    border-radius: 15px 15px 0px 0px;
+    box-shadow: 0 -5px 30px -16px black;
   }
   .form-control {
     border-radius: 0;
@@ -204,7 +205,7 @@ icon Styling
 }
 
 .nav-pills{
-  background-color: #f9e4a7;
+  /*background-color: #f9e4a7;*/
   a{
     color: #807878;
   }
@@ -250,4 +251,11 @@ thead{
   .progress{
     border-radius: 15px;
   }
+}
+
+h2{
+  background-color: #285ca4;
+  color: #ffffff;
+  padding: 30px 40px;
+  margin-bottom: 0;
 }

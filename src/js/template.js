@@ -44,18 +44,42 @@ var totalCunt = null;
             defaultActiveTab = tabList[0];
 
 
-            // Set the HTML template
-            var tabListCompileWithTemplate = _.template($('#tablist').html());
-            var tabDataCompileWithTemplate = _.template($('#tablistWrapper').html());
 
-            // render the template using hte data
-            $('.tabListConainer').html(tabListCompileWithTemplate(tabList));
-            $('.tabListDataContainer').html(tabDataCompileWithTemplate(groupedData));
+            var tabDataCompileWithTemplate = null;
+            var containerWrapper = $('.container-fluid');
 
+            if(containerWrapper.data('custome-path') === 'sta'){
+                // Set the HTML template
+                var tabListCompileWithTemplate = _.template($('#tablist').html());
+                tabDataCompileWithTemplate = _.template($('#tablistWrapper').html());
+                // render the template using hte data
+                $('.tabListConainer').html(tabListCompileWithTemplate(tabList));
+                $('.tabListDataContainer').html(tabDataCompileWithTemplate(groupedData));
+                
+            }
+
+            if(containerWrapper.data('custome-path') === 'lta'){
+                // Set the HTML template
+                var compile = null;
+                var getTemplate = null;
+                for(var i = 0; tabList.length > i;i++){
+                    var tabListName = tabList[i];
+                    var mapData = {data:{name:tabList[i],dataList:groupedData[tabList[i]]}};
+                    getTemplate = _.template($('#tablistWrapperlta').html());
+
+                    $('#'+tabListName.toLowerCase().replace(/( & )| /g,'-')+'-container').html(getTemplate(mapData));
+                }
+
+            }
             tabList = $('.tab-pane').map(function(i, el) {return $(el).attr('id');}).get();
             selectionData = _.zipObject(tabList, _.zipWith(tabList, function(){return []}));
+
         },
         error: function () {
 
         }
     });
+
+function getData(dataObj, targetedData){
+    return dataObj[targetedData];
+}

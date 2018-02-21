@@ -135,6 +135,10 @@ $(document).on('change', 'input[type=radio]', function () {
   //  Update Class Check for tab error validation
   $(this).closest('tr').removeClass('not-selected').addClass('selected-ok');
 
+  console.log(selectionData)
+  console.log(getName)
+  console.log($thisName)
+  console.log(getNode)
   getNode.push($thisName);
   selectionData[getName] = _.uniq(getNode);
 
@@ -184,3 +188,15 @@ function modelLauncher () {
 }
 
 $('.info-icon').popover();
+
+$('#page2').hide();
+$('button.btnLtaNext').on('click', function(){
+  $('#page2').show();
+  $('#page1').hide();
+  $('html, body').animate({ scrollTop: 0 }, 'slow');
+});
+$('button.btnLtaPrevious').on('click', function(){
+  $('#page1').show();
+  $('#page2').hide();
+  $('html, body').animate({ scrollTop: 0 }, 'slow');
+});

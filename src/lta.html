@@ -12,7 +12,10 @@
     <link rel="stylesheet" href="css/loader.css">
 
     <script src="js/lodash.min.js"></script>
+
     <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+
     <!--<script src="js/hexApi.js"></script>-->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/tether.min.js"></script>
@@ -22,27 +25,15 @@
 
 <body>
 
+<script type="text/html" id="tablistWrapperlta">
 
-<script type="text/html" id="tablist">
-    <ul class="nav nav-pills nav-fill nav-wizard" id="myTab" role="tablist">
-        {{ _.each(tabList, function(tabName) { }}
-        <li class="nav-item">
-            <a class="nav-link {{=seDefaultTabActive(tabName) }}" data-tab-index="0"
-               id="{{=tabName.toLowerCase().replace(/( & )| /g,'-') }}-tab" data-toggle="tab"
-               href="#{{=tabName.toLowerCase().replace(/( & )| /g,'-') }}" role="tab"
-               aria-controls="{{=tabName.toLowerCase().replace(/( & )| /g,'-') }}" aria-selected="true">
-                <span class="icon icon-{{=tabName.toLowerCase().replace(/( & )| /g,'-') }}"></span>
-                {{=tabName}}</a>
-        </li>
-        {{ }); }}
-    </ul>
-</script>
 
-<script type="text/html" id="tablistWrapper">
-    {{ _.each(groupedData, function(key, value) { }}
-    <div class="tab-pane fade show {{=seDefaultTabActive(value) }}" data-tab-index="0"
-         id="{{=value.toLowerCase().replace(/( & )| /g,'-') }}" role="tabpanel"
-         aria-labelledby="{{=value.toLowerCase().replace(/( & )| /g,'-') }}-tab">
+    <div class="tab-pane fade show " data-tab-index="0"
+         id="{{=data.name.toLowerCase().replace(/( & )| /g,'-') }}" role="tabpanel"
+         aria-labelledby="{{=data.name.toLowerCase().replace(/( & )| /g,'-') }}-tab">
+
+        <h2>{{=data.name}}</h2>
+
         <table class="table table-bordered table-responsive-sm">
             <thead>
             <tr>
@@ -57,7 +48,7 @@
             </tr>
             </thead>
             <tbody>
-            {{ _.each(key, function(row, col) { }}
+            {{ _.each(data.dataList, function(row, col) { }}
             <tr class="not-selected">
                 <th scope="row">{{=col + 1}}</th>
                 <td>{{=row.Text}}</td>
@@ -66,9 +57,9 @@
                     <div class="form-check">
                         <p>
                             <input type="radio"
-                                   id="{{=value.toLowerCase().replace(/( & )| /g,'-') }}-{{=col}}{{=radio}}"
-                                   name="radio-group-{{=value.toLowerCase().replace(/( & )| /g,'-') }}-{{=col}}">
-                            <label for="{{=value.toLowerCase().replace(/( & )| /g,'-') }}-{{=col}}{{=radio}}"></label>
+                                   id="{{=data.name.toLowerCase().replace(/( & )| /g,'-') }}-{{=col}}{{=radio}}"
+                                   name="radio-group-{{=data.name.toLowerCase().replace(/( & )| /g,'-') }}-{{=col}}">
+                            <label for="{{=data.name.toLowerCase().replace(/( & )| /g,'-') }}-{{=col}}{{=radio}}"></label>
                         </p>
                     </div>
                 </td>
@@ -77,30 +68,13 @@
             {{ }); }}
             </tbody>
         </table>
-        <div class="row">
-            <!-- <div class="col">
-                <div class="alert alert-danger float-left" role="alert">
-                    You have not answered question 3 from Organization Culture section(s).
-                </div>
-            </div> -->
-            <div class="col text-center">
-                <div>
-                    <button class="btn btn-outline-secondary btnPrevious" data-tab-index-click="0"
-                            data-previous="{{=previousButton(tabList,value)}}" type="button"> < Previous
-                    </button>
-                    <button class="btn btn-outline-secondary btnNext" data-tab-index-click="1"
-                            data-next="{{=nextButton(tabList,value)}}" type="button">Next >
-                    </button>
-                </div>
-            </div>
-        </div>
     </div>
-    {{ }); }}
+
 
 
 </script>
 
-<div class="container-fluid">
+<div class="container-fluid" data-custome-path="lta">
 
     <!--
         Header Section Includes @Main Nav, @Progress bar, @Search BOx, @Page Header
@@ -108,41 +82,28 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <h3>Agile Maturity Quick Assessment</h3>
+
+            <button class="icon info-icon"  data-toggle="popover" data-trigger="focus" data-container="body" data-placement="left"
+                    data-content="Please provide response to each question listed under various tabs below. It will help us assess your Agile Maturity.">
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- <form class="form-inline my-2 my-lg-0">
-                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                 </form>-->
-            </div>
-            <!--<p>Please provide response to each question listed under various tabs below. It will help us assess your Agile Maturity.</p>-->
         </nav>
     </header>
     <!--
         Tabbed Elements
+
     -->
-    <section class="border border-top-0 border-left-0 border-right-0">
+    <section class="progress-bar-container">
         <div class="row">
-            <div class="col-sm">
-                <h3>Agile Maturity Quick Assessment</h3>
-                <span class="badge badge-pill badge-info">Note</span> All questions are mandatory
+            <div class="text-right">
+                <p class="font-weight-bold"> Progress </p>
             </div>
-            <div class="col-sm">
-                <div class="row">
-                    <div class="col-sm col-md col-lg text-right">
-                        <p class="font-weight-bold"> Progress </p>
-                    </div>
-                    <div class="col-sm col-md col-lg">
-                        <div class="progress">
-                            <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated"
-                                 role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
-                                 style="width: 75%">75%
-                            </div>
-                        </div>
+            <div class="col-sm col-md col-lg">
+                <div class="progress">
+                    <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated"
+                         role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+                         style="width: 75%">75%
                     </div>
                 </div>
             </div>
@@ -152,8 +113,34 @@
 
     <section>
 
-        <div class="tabListConainer"></div>
-        <div class="tabListDataContainer tab-content" id="myTabContent"></div>
+
+        <div class="tabListDataContainer tab-content" id="myTabContent">
+            <section id="page1">
+                <section id="organization-culture-container"></section>
+                <section id="people-container"> </section>
+            </section>
+            <section id="page2">
+                <section id="agile-management-container"> </section>
+                <section id="software-process-container"> </section>
+                <section id="tools-infrastructure-container"> </section>
+            </section>
+            <section id="controls">
+                <div class="row">
+                    <div class="col text-center">
+                        <div>
+                            <button class="btn btn-outline-secondary btnLtaPrevious" type="button">
+                                < Previous
+                            </button>
+                            <button class="btn btn-outline-secondary btnLtaNext" type="button">
+                                Next >
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
     </section>
 
     <!-- Modal -->
@@ -201,8 +188,11 @@
     </div>
 
 </div>
+
 <script src="assets/js/custome.js"></script>
 <script src="js/template.js"></script>
 <div class="loading">Loading&#8230;</div>
 </body>
 </html>
+
+

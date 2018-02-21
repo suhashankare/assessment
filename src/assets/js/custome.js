@@ -135,12 +135,14 @@ $(document).on('change', 'input[type=radio]', function () {
   //  Update Class Check for tab error validation
   $(this).closest('tr').removeClass('not-selected').addClass('selected-ok');
 
-  console.log(selectionData)
-  console.log(getName)
-  console.log($thisName)
-  console.log(getNode)
   getNode.push($thisName);
   selectionData[getName] = _.uniq(getNode);
+
+  if(!$('#'+getName).find('.not-selected').length){
+    $('#'+getName+"-tab").siblings('.custom-badge').show().html("&#10003;").addClass('badge-success').removeClass('badge-danger');
+  }else{
+    $('#'+getName+"-tab").siblings('.custom-badge').show().html("&#10539;");
+  }
 
   updateProgressBar();
   manipulateProgressbar();
@@ -189,14 +191,36 @@ function modelLauncher () {
 
 $('.info-icon').popover();
 
-$('#page2').hide();
+
+var section_one  = $('#page1');
+var section_two = $('#page2');
+
+section_two.hide();
 $('button.btnLtaNext').on('click', function(){
-  $('#page2').show();
-  $('#page1').hide();
+
+  section_two.show();
+  section_one.hide();
+
+  if (section_one.find('tr.not-selected').length) {
+    section_one.find('.tab-pane').addClass('not-complete');
+  }else{
+     section_one.find('.tab-pane').removeClass('not-complete');
+  }
+
   $('html, body').animate({ scrollTop: 0 }, 'slow');
+  $(this).attr('disabled','disabled');
+  $('button.btnLtaPrevious').removeAttr('disabled');
 });
 $('button.btnLtaPrevious').on('click', function(){
-  $('#page1').show();
-  $('#page2').hide();
+  section_two.hide();
+  section_one.show();
+
+  if (section_two.find('tr.not-selected').length) {
+    section_two.find('.tab-pane').addClass('not-complete');
+  }else{
+    section_two.find('.tab-pane').removeClass('not-complete');
+  }
   $('html, body').animate({ scrollTop: 0 }, 'slow');
+  $(this).attr('disabled','disabled');
+  $('button.btnLtaNext').removeAttr('disabled');
 });

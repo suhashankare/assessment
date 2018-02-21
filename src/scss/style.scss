@@ -219,9 +219,11 @@ icon Styling
 .nav-item{
   position: relative;
   .custom-badge{
+    display: none;
     position: absolute;
     top:-10px;
     right: 15px;
+    box-shadow: 0 8px 6px -6px black;
   }
   a.active{
     .icon{
@@ -264,4 +266,8 @@ h2{
   color: #ffffff;
   padding: 30px 40px;
   margin-bottom: 0;
+}
+
+.modal button.btn {
+  width: 100% !important;
 }

@@ -55,7 +55,7 @@ var totalCunt = null;
                 // render the template using hte data
                 $('.tabListConainer').html(tabListCompileWithTemplate(tabList));
                 $('.tabListDataContainer').html(tabDataCompileWithTemplate(groupedData));
-                
+
             }
 
             if(containerWrapper.data('custome-path') === 'lta'){

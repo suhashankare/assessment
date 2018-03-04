@@ -224,3 +224,33 @@ $('button.btnLtaPrevious').on('click', function(){
   $(this).attr('disabled','disabled');
   $('button.btnLtaNext').removeAttr('disabled');
 });
+
+
+var form = new FormData();
+form.append("__EVENTTARGET", "ctl00$ContentPlaceHolder2$linkSubmit");
+form.append("__EVENTARGUMENT", "");
+form.append("__VIEWSTATE", "Fej3sjNW/RTzanCGT9YKQ63ewkfUQtECZCExzNTOlqT3sJnniXOsX5bDijIVO5ecoSTnJXiWDhJuRMIAX3tgxqIwED3WSn2fqig+CEUxP1I=");
+form.append("__VIEWSTATEGENERATOR", "16093116\n");
+form.append("__EVENTVALIDATION", "OOZoM8tL5kucID2wHH2sEqwx8jPUkQWVzQsRPzPxR3+G32F0AYi9P5QTmj4iFJSL6JX/gBFXx4ufD1r5ZNCGwKeKcwhjNZSo3kHwOyD+puHu0vnyGxVqbhswunM6xes7unNPZkjkB1E7g+gHRvTsaA==");
+form.append("ctl00$ContentPlaceHolder2$idhiddenAnswer", "hexaware|suhas|suhasha@hexaware.com|8097533797|32|1:HEXSA_Q1:5 - Strongly Agree|2:HEXSA_Q2:4 - Agree|3:HEXSA_Q3:5 - Strongly Agree|4:HEXSA_Q12:4 - Agree|5:HEXSA_Q15:3 - Neutral|6:HEXSA_Q21:4 - Agree|7:HEXSA_Q20:3 - Neutral|8:HEXSA_Q9:5 - Strongly Agree|9:HEXSA_Q4:4 - Agree|10:HEXSA_Q13:3 - Neutral|11:HEXSA_Q14:4 - Agree|12:HEXSA_Q22:4 - Agree|13:HEXSA_Q26:4 - Agree|14:HEXSA_Q7:5 - Strongly Agree|15:HEXSA_Q8:4 - Agree|16:HEXSA_Q10:3 - Neutral|17:HEXSA_Q23:3 - Neutral|18:HEXSA_Q25:4 - Agree|19:HEXSA_Q27:5 - Strongly Agree|20:HEXSA_Q28:4 - Agree|21:HEXSA_Q16:5 - Strongly Agree|22:HEXSA_Q6:4 - Agree|23:HEXSA_Q11:5 - Strongly Agree|24:HEXSA_Q17:5 - Strongly Agree|25:HEXSA_Q19:5 - Strongly Agree|26:HEXSA_Q31:5 - Strongly Agree|27:HEXSA_Q32:4 - Agree|28:HEXSA_Q5:5 - Strongly Agree|29:HEXSA_Q18:4 - Agree|30:HEXSA_Q24:5 - Strongly Agree|31:HEXSA_Q29:5 - Strongly Agree|32:HEXSA_Q30:4 - Agree");
+
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://hexopus.hexaware.com/agileassessmentweb/assessment",
+  "method": "POST",
+  "headers": {
+    "location": "https://hexopus.hexaware.com/agileassessmentweb/Success.aspx",
+    "cache-control": "no-cache",
+    "x-frame-options": "SAMEORIGIN",
+    "postman-token": "e4bdfda5-2edd-fa5d-f90b-3411d6a9bef9"
+  },
+  "processData": false,
+  "contentType": false,
+  "mimeType": "multipart/form-data",
+  "data": form
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});

@@ -226,6 +226,10 @@ $('button.btnLtaPrevious').on('click', function(){
 });
 
 
+var userSelection = ["Strongly Agree", "Agree", "Neutral", "Disagree", "Last", "Strongly Disagree"];
+
+/*
+
 var form = new FormData();
 form.append("__EVENTTARGET", "ctl00$ContentPlaceHolder2$linkSubmit");
 form.append("__EVENTARGUMENT", "");
@@ -253,4 +257,4 @@ var settings = {
 
 $.ajax(settings).done(function (response) {
   console.log(response);
-});
+});*/

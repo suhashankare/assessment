@@ -51,7 +51,7 @@ var totalCunt = null;
             if(containerWrapper.data('custome-path') === 'sta'){
                 // Set the HTML template
                 var tabListCompileWithTemplate = _.template($('#tablist').html());
-                tabDataCompileWithTemplate = _.template($('#tablistWrapper').html());
+                tabDataCompileWithTemplate = _.template($('#tablistWrapperForAccordion').html());
                 // render the template using hte data
                 $('.tabListConainer').html(tabListCompileWithTemplate(tabList));
                 $('.tabListDataContainer').html(tabDataCompileWithTemplate(groupedData));

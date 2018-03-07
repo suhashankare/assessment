@@ -37,6 +37,8 @@
     text-align: left; } }
 
 @media (max-width: 575.99px) {
+  .col-sm {
+    width: 50%; }
   #myTab {
     flex-direction: column !important; } }
 
@@ -91,6 +93,16 @@
   border: 1px solid #ddd;
   border-radius: 100%;
   background: #fff; }
+  @media (max-width: 575.99px) {
+    [type="radio"]:checked + label:before,
+    [type="radio"]:not(:checked) + label:before {
+      left: 0;
+      top: 2px; } }
+  @media (min-width: 576px) {
+    [type="radio"]:checked + label:before,
+    [type="radio"]:not(:checked) + label:before {
+      left: 0;
+      top: 2px; } }
 
 [type="radio"]:checked + label:after,
 [type="radio"]:not(:checked) + label:after {
@@ -104,6 +116,16 @@
   border-radius: 100%;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease; }
+  @media (max-width: 575.99px) {
+    [type="radio"]:checked + label:after,
+    [type="radio"]:not(:checked) + label:after {
+      left: 4px;
+      top: 6px; } }
+  @media (min-width: 576px) {
+    [type="radio"]:checked + label:after,
+    [type="radio"]:not(:checked) + label:after {
+      left: 4px;
+      top: 6px; } }
 
 [type="radio"]:not(:checked) + label:after {
   opacity: 0;
@@ -121,6 +143,16 @@
 
 .form-check {
   padding-left: 0; }
+  @media (max-width: 575.99px) {
+    .form-check {
+      padding-left: inherit;
+      height: 50px; } }
+  @media (min-width: 576px) {
+    .form-check {
+      padding-left: inherit;
+      min-width: 30% !important;
+      margin-top: 10px;
+      margin-bottom: 10px; } }
 
 /**
 icon Styling

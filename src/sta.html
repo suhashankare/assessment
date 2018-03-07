@@ -107,6 +107,69 @@
 
 </script>
 
+<script type="text/html" id="tablistWrapperForAccordion">
+    {{ _.each(groupedData, function(key, value) { }}
+
+    <div class="tab-pane fade show {{=seDefaultTabActive(value) }}" data-tab-index="0"
+         id="{{=value.toLowerCase().replace(/( & )| /g,'-') }}" role="tabpanel"
+         aria-labelledby="{{=value.toLowerCase().replace(/( & )| /g,'-') }}-tab">
+
+        <h2>{{=value}}</h2>
+
+        <div id="accordion">
+            {{ _.each(key, function(row, col) { }}
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <span class="mb-0 row">
+                        <div class="col-1">{{=col + 1}}.</div>
+                        <div class="col" data-toggle="collapse" data-target="#collapseOne"
+                           aria-expanded="true" aria-controls="collapseOne">
+                             {{=row.Text}}
+                        </div>
+                    </span>
+                </div>
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body row">
+                        {{ _.forEach(userSelection, function(titleName, radio) { }}
+                        <div class="form-check col-sm">
+
+                                <input type="radio"
+                                       id="{{=value.toLowerCase().replace(/( & )| /g,'-') }}-{{=col}}{{=radio}}"
+                                       name="radio-group-{{=value.toLowerCase().replace(/( & )| /g,'-') }}-{{=col}}">
+                                <label for="{{=value.toLowerCase().replace(/( & )| /g,'-') }}-{{=col}}{{=radio}}">
+                                    {{= titleName}}</label>
+
+                        </div>
+                        {{ }); }}
+                    </div>
+                </div>
+            </div>
+            {{ }); }}
+        </div>
+
+        <div class="row">
+            <!-- <div class="col">
+                <div class="alert alert-danger float-left" role="alert">
+                    You have not answered question 3 from Organization Culture section(s).
+                </div>
+            </div> -->
+            <div class="col text-center">
+                <div>
+                    <button class="btn btn-outline-secondary btnPrevious" data-tab-index-click="0"
+                            data-previous="{{=previousButton(tabList,value)}}" type="button"> < Previous
+                    </button>
+                    <button class="btn btn-outline-secondary btnNext" data-tab-index-click="1"
+                            data-next="{{=nextButton(tabList,value)}}" type="button">Next >
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ }); }}
+
+
+</script>
+
 <div class="container-fluid" data-custome-path="sta">
 
     <!--

@@ -128,10 +128,10 @@
                         </div>
                     </span>
                 </div>
-                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                    <div class="card-body row">
+                <div id="collapseOne" class="collapse show not-selected" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body row ">
                         {{ _.forEach(userSelection, function(titleName, radio) { }}
-                        <div class="form-check col-sm">
+                        <div class="form-check col-sm ">
 
                                 <input type="radio"
                                        id="{{=value.toLowerCase().replace(/( & )| /g,'-') }}-{{=col}}{{=radio}}"
@@ -227,9 +227,15 @@
               <h4> Thank you!. </h4>
            You have completed Agile STA Assessment
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Review all Questions Answer</button>
-            <button type="button" class="btn btn-primary"> Okey! Submit My Assessment</button>
+          <div class="modal-footer row">
+              <div class="col">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Review all Questions Answer</button>
+              </div>
+              <div class="col">
+                  <button type="button" class="btn btn-primary"> Okey! Submit My Assessment</button>
+              </div>
+
+
           </div>
         </div>
       </div>

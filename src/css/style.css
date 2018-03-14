@@ -231,5 +231,5 @@ h2 {
 .default-btn {
   width: auto !important; }
 
-#myTabContent #page1 .not-complete .custom-badge {
+#myTabContent #page1 .not-complete .custom-badge, #myTabContent #page2 .not-complete .custom-badge {
   display: block !important; }

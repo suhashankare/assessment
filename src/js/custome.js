@@ -26,13 +26,13 @@ $(document).on('show.bs.tab', $('a[data-toggle="tab"]'), function (e) {
     var targetDiv = $(target);
     var $tabModel = $('#tabWarningModel');
 
-    if (currentTabHDiv.find('tr.not-selected').length) {
+    if (currentTabHDiv.find('tr.not-selected, div.collapse').length) {
         currentTabHDiv.addClass('not-complete');
         currentTab.closest('.nav-item').addClass('not-complete');
         currentTab.closest('.nav-item').find('.custom-badge').show().html("&#9888;");
     } else {
 
-      if(!targetDiv.find('tr.not-selected').length){
+      if(!targetDiv.find('tr.not-selected, div.collapse').length){
         targetDiv.removeClass('not-complete');
         targetDiv.closest('.nav-item').removeClass('not-complete');
         targetDiv.closest('.nav-item').find('.custom-badge').show().html("&#10539;");
@@ -109,9 +109,10 @@ $(document).on('change', 'input[type=radio]', function () {
     var getName = $thisName.replace(/radio-group-/, '').replace(/-\d/, '');
     //var checkTabNameInTheTabList = tabList.indexOf ( getName );
     var getNode = selectionData[getName];
-
+console.log($thisName);
     //  Update Class Check for tab error validation
     $(this).closest('tr').removeClass('not-selected').addClass('selected-ok');
+    $(this).closest('div.collapse').removeClass('not-selected').addClass('selected-ok');
 
     getNode.push($thisName);
     selectionData[getName] = _.uniq(getNode);
@@ -133,7 +134,7 @@ $(document).on('change', 'input[type=radio]', function () {
      * initialise model box
      */
     if (updateProgressBar() === totalCunt) {
-        $('.btnNext').text('Submit');
+        $('.btnNext, .btnLtaNext').text('Submit').removeAttr('disabled');
         modelLauncher();
 
     }

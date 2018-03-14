@@ -32,6 +32,7 @@
          id="{{=data.name.toLowerCase().replace(/( & )| /g,'-') }}" role="tabpanel"
          aria-labelledby="{{=data.name.toLowerCase().replace(/( & )| /g,'-') }}-tab">
         <span class="custom-badge badge badge-warning">&#9888;</span>
+
         <h2>{{=data.name}}</h2>
 
         <table class="table table-bordered table-responsive-sm">
@@ -71,6 +72,53 @@
     </div>
 
 
+</script>
+
+<script type="text/html" id="tablistWrapperForAccordion">
+    <div id="accordion">
+    {{ _.each(groupedData, function(key, value) { }}
+
+
+        <div class="card">
+            <div class="card-header">
+                <h2 data-toggle="collapse" data-target="#{{=value.toLowerCase().replace(/( & )| /g,'-') }}-tab">{{=value}}
+                </h2>
+            </div>
+
+            <div id="{{=value.toLowerCase().replace(/( & )| /g,'-') }}-tab" class="collapse" data-parent="#accordion">
+                <div class="card-body">
+                    <div>
+                        {{ _.each(key, function(row, col) { }}
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <span class="mb-0 row">
+                                    <div class="col-1">{{=col + 1}}.</div>
+                                    <div class="col" data-toggle="collapse" data-target="#">
+                                        {{=row.Text}}
+                                    </div>
+                                </span>
+                            </div>
+                            <div id="#" class="collapse show not-selected">
+                                <div class="card-body row ">
+                                    {{ _.forEach(userSelection, function(titleName, radio) { }}
+                                    <div class="form-check col-sm ">
+                                        <input type="radio" id="{{=value.toLowerCase().replace(/( & )| /g,'-') }}-{{=col}}{{=radio}}" name="radio-group-{{=value.toLowerCase().replace(/( & )| /g,'-') }}-{{=col}}">
+                                        <label for="{{=value.toLowerCase().replace(/( & )| /g,'-') }}-{{=col}}{{=radio}}">
+                                            {{= titleName}}</label>
+                                    </div>
+                                    {{ }); }}
+                                </div>
+                            </div>
+                        </div>
+                        {{ }); }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    {{ }); }}
+    </div>
 
 </script>
 
@@ -82,9 +130,10 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#"></a>
+
             <h3>Agile Maturity Quick Assessment</h3>
 
-            <button class="icon info-icon border-0"  data-toggle="popover" data-trigger="focus" data-container="body" data-placement="left"
+            <button class="icon info-icon border-0" data-toggle="popover" data-trigger="focus" data-container="body" data-placement="left"
                     data-content="Please provide response to each question listed under various tabs below. It will help us assess your Agile Maturity.">
             </button>
 
@@ -117,12 +166,12 @@
         <div class="tabListDataContainer tab-content" id="myTabContent">
             <section id="page1">
                 <section id="organization-culture-container"></section>
-                <section id="people-container"> </section>
+                <section id="people-container"></section>
             </section>
             <section id="page2">
-                <section id="agile-management-container"> </section>
-                <section id="software-process-container"> </section>
-                <section id="tools-infrastructure-container"> </section>
+                <section id="agile-management-container"></section>
+                <section id="software-process-container"></section>
+                <section id="tools-infrastructure-container"></section>
             </section>
             <section id="controls">
                 <div class="row">
@@ -181,7 +230,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-warning btn-secondary" data-dismiss="modal">Stay On This Tab</button>
-                    <button type="button" class="btn btn-dark btn-primary">Will Visit Back </button>
+                    <button type="button" class="btn btn-dark btn-primary">Will Visit Back</button>
                 </div>
             </div>
         </div>

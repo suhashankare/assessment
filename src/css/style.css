@@ -30,6 +30,16 @@
   width: 6rem;
   text-align: center; }
 
+.tabListDataContainer #accordion h2 {
+  background-color: #285ca4;
+  color: #ffffff;
+  padding: 10px 10px;
+  margin-bottom: 0; }
+
+.tabListDataContainer #accordion table th.selection {
+  width: 6rem;
+  text-align: center; }
+
 @media (min-width: 576px) {
   .text-right {
     text-align: left; } }
@@ -233,3 +243,12 @@ h2 {
 
 #myTabContent #page1 .not-complete .custom-badge, #myTabContent #page2 .not-complete .custom-badge {
   display: block !important; }
+
+.card-header:first-child {
+  border-radius: 0; }
+
+.card-header {
+  padding: 0;
+  margin-bottom: 0;
+  background-color: inherit;
+  border-bottom: 0; }

@@ -68,9 +68,15 @@ var totalCunt = null;
                 for(var i = 0; tabList.length > i;i++){
                     var tabListName = tabList[i];
                     var mapData = {data:{name:tabList[i],dataList:groupedData[tabList[i]]}};
-                    getTemplate = _.template($('#tablistWrapperlta').html());
 
-                    $('#'+tabListName.toLowerCase().replace(/( & )| /g,'-')+'-container').html(getTemplate(mapData));
+                    if(navigator.userAgent.indexOf("Mobile") > -1){
+                        getTemplate = _.template($('#tablistWrapperForAccordion').html());
+                        $('.tabListDataContainer').html(getTemplate(mapData));
+                    }else{
+                        getTemplate = _.template($('#tablistWrapperlta').html());
+                        $('#'+tabListName.toLowerCase().replace(/( & )| /g,'-')+'-container').html(getTemplate(mapData));
+                    }
+
                 }
 
             }

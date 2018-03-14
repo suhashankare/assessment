@@ -51,6 +51,20 @@
       text-align: center;
     }
   }
+  #accordion{
+    h2{
+      background-color: #285ca4;
+      color: #ffffff;
+      padding: 10px 10px;
+      margin-bottom: 0;
+    }
+    table {
+      th.selection {
+        width: 6rem;
+        text-align: center;
+      }
+    }
+  }
 }
 
 @media (min-width: 576px) {
@@ -318,3 +332,13 @@ h2{
       }
     }
   }
+
+.card-header:first-child{
+  border-radius: 0;
+}
+.card-header {
+  padding: 0;
+  margin-bottom: 0;
+  background-color: inherit;
+  border-bottom: 0;
+}

@@ -31,7 +31,7 @@
     <div class="tab-pane fade show " data-tab-index="0"
          id="{{=data.name.toLowerCase().replace(/( & )| /g,'-') }}" role="tabpanel"
          aria-labelledby="{{=data.name.toLowerCase().replace(/( & )| /g,'-') }}-tab">
-
+        <span class="custom-badge badge badge-warning">&#9888;</span>
         <h2>{{=data.name}}</h2>
 
         <table class="table table-bordered table-responsive-sm">
@@ -84,7 +84,7 @@
             <a class="navbar-brand" href="#"></a>
             <h3>Agile Maturity Quick Assessment</h3>
 
-            <button class="icon info-icon"  data-toggle="popover" data-trigger="focus" data-container="body" data-placement="left"
+            <button class="icon info-icon border-0"  data-toggle="popover" data-trigger="focus" data-container="body" data-placement="left"
                     data-content="Please provide response to each question listed under various tabs below. It will help us assess your Agile Maturity.">
             </button>
 

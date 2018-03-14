@@ -15,8 +15,6 @@
     height: 24px; }
   .container-fluid #myTab a {
     font-size: 1.25rem; }
-  .container-fluid #myTabContent {
-    /*  padding: 25px;*/ }
   .container-fluid h3 {
     font-size: 33.333333333333336px;
     color: #ffffff;
@@ -187,15 +185,15 @@ icon Styling
   .nav-pills a {
     color: #807878; }
 
-.nav-item {
+.nav-item, .tab-pane {
   position: relative; }
-  .nav-item .custom-badge {
+  .nav-item .custom-badge, .tab-pane .custom-badge {
     display: none;
     position: absolute;
     top: -10px;
     right: 15px;
     box-shadow: 0 8px 6px -6px black; }
-  .nav-item a.active .icon {
+  .nav-item a.active .icon, .tab-pane a.active .icon {
     filter: invert(0%); }
 
 #tabWarningModel .btn:not([disabled]):not(.disabled) {
@@ -232,3 +230,6 @@ h2 {
 
 .default-btn {
   width: auto !important; }
+
+#myTabContent #page1 .not-complete .custom-badge {
+  display: block !important; }

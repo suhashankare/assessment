@@ -28,7 +28,7 @@
   }
 
   #myTabContent {
-  /*  padding: 25px;*/
+
   }
 
   h3{
@@ -249,7 +249,7 @@ icon Styling
     color: #807878;
   }
 }
-.nav-item{
+.nav-item, .tab-pane{
   position: relative;
   .custom-badge{
     display: none;
@@ -308,3 +308,13 @@ h2{
 .default-btn{
   width: auto !important;
 }
+
+#myTabContent {
+    #page1{
+      .not-complete{
+        .custom-badge{
+          display: block !important;
+        }
+      }
+    }
+  }

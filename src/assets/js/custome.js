@@ -31,6 +31,7 @@ $(document).on('show.bs.tab', $('a[data-toggle="tab"]'), function (e) {
         currentTab.closest('.nav-item').addClass('not-complete');
         currentTab.closest('.nav-item').find('.custom-badge').show().html("&#9888;");
     } else {
+
       if(!targetDiv.find('tr.not-selected').length){
         targetDiv.removeClass('not-complete');
         targetDiv.closest('.nav-item').removeClass('not-complete');
@@ -115,11 +116,14 @@ $(document).on('change', 'input[type=radio]', function () {
     getNode.push($thisName);
     selectionData[getName] = _.uniq(getNode);
 
+
     if (!$('#' + getName).find('.not-selected').length) {
         $('#' + getName + "-tab").siblings('.custom-badge').show().html("&#10003;").addClass('badge-success').removeClass('badge-warning');
+        $('#' + getName).find('.custom-badge').show().html("&#10003;").addClass('badge-success').removeClass('badge-warning');
     } else {
+
         // do not show before , wait for the tab switch then validate
-       // $('#' + getName + "-tab").siblings('.custom-badge').show().html("&#10539;");
+        //$('#' + getName).find('.custom-badge').show().html("&#10539;");
     }
 
     updateProgressBar();
@@ -189,7 +193,6 @@ $('button.btnLtaNext').on('click', function () {
     } else {
         section_one.find('.tab-pane').removeClass('not-complete');
     }
-
     $('html, body').animate({scrollTop: 0}, 'slow');
     $(this).attr('disabled', 'disabled');
     $('button.btnLtaPrevious').removeAttr('disabled');

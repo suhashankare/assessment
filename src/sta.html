@@ -35,7 +35,7 @@
                href="#{{=tabName.toLowerCase().replace(/( & )| /g,'-') }}" role="tab"
                aria-controls="{{=tabName.toLowerCase().replace(/( & )| /g,'-') }}" aria-selected="true">
                 <span class="icon icon-{{=tabName.toLowerCase().replace(/( & )| /g,'-') }}"></span>
-                {{=tabName}}</a><span class="custom-badge badge badge-danger">X</span>
+                {{=tabName}}</a><span class="custom-badge badge badge-warning">X</span>
         </li>
         {{ }); }}
     </ul>
@@ -180,7 +180,7 @@
             <a class="navbar-brand" href="#"></a>
             <h3>Agile Maturity Quick Assessment</h3>
 
-            <button class="icon info-icon"  data-toggle="popover" data-trigger="focus" data-container="body" data-placement="left"
+            <button class="icon info-icon border-0"  data-toggle="popover" data-trigger="focus" data-container="body" data-placement="left"
                     data-content="Please provide response to each question listed under various tabs below. It will help us assess your Agile Maturity.">
             </button>
 

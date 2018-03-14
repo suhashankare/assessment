@@ -29,11 +29,13 @@ $(document).on('show.bs.tab', $('a[data-toggle="tab"]'), function (e) {
     if (currentTabHDiv.find('tr.not-selected').length) {
         currentTabHDiv.addClass('not-complete');
         currentTab.closest('.nav-item').addClass('not-complete');
-        currentTab.closest('.nav-item').find('.custom-badge').text('x');
+        currentTab.closest('.nav-item').find('.custom-badge').show().html("&#9888;");
     } else {
+      if(!targetDiv.find('tr.not-selected').length){
         targetDiv.removeClass('not-complete');
         targetDiv.closest('.nav-item').removeClass('not-complete');
-        targetDiv.closest('.nav-item').find('.custom-badge').text('-/');
+        targetDiv.closest('.nav-item').find('.custom-badge').show().html("&#10539;");
+      }
     }
 });
 
@@ -93,21 +95,6 @@ $(document).on('click', btnPrevious, function (e) {
 });
 
 /**
- * Rows Error Validation
- @todo: Make Dynamic rows selection
- */
-$.each($('[name="radio-group-organization-culture-6"]'), function () {
-    if (!$(this).prop('checked')) {
-
-        // highlight error rows
-        $(this).closest('tr').addClass('alert alert-danger');
-
-        // highlight error tab
-        $('#' + $(this).closest('div.tab-pane').attr('id') + '-tab').addClass('alert alert-danger');
-    }
-});
-
-/**
  * Each Radio Button Selection for validation
  @todo:
  */
@@ -129,9 +116,10 @@ $(document).on('change', 'input[type=radio]', function () {
     selectionData[getName] = _.uniq(getNode);
 
     if (!$('#' + getName).find('.not-selected').length) {
-        $('#' + getName + "-tab").siblings('.custom-badge').show().html("&#10003;").addClass('badge-success').removeClass('badge-danger');
+        $('#' + getName + "-tab").siblings('.custom-badge').show().html("&#10003;").addClass('badge-success').removeClass('badge-warning');
     } else {
-        $('#' + getName + "-tab").siblings('.custom-badge').show().html("&#10539;");
+        // do not show before , wait for the tab switch then validate
+       // $('#' + getName + "-tab").siblings('.custom-badge').show().html("&#10539;");
     }
 
     updateProgressBar();

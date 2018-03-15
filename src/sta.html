@@ -118,17 +118,17 @@
 
         <div id="accordion">
             {{ _.each(key, function(row, col) { }}
-            <div class="card">
+            <div class="card card-body">
                 <div class="card-header" id="headingOne">
                     <span class="mb-0 row">
                         <div class="col-1">{{=col + 1}}.</div>
-                        <div class="col" data-toggle="collapse" data-target="#collapseOne"
+                        <div class="col"
                            aria-expanded="true" aria-controls="collapseOne">
                              {{=row.Text}}
                         </div>
                     </span>
                 </div>
-                <div id="collapseOne" class="collapse show not-selected" aria-labelledby="headingOne" data-parent="#accordion">
+                <div  class="collapse show not-selected" aria-labelledby="headingOne" data-parent="#accordion">
                     <div class="card-body row ">
                         {{ _.forEach(userSelection, function(titleName, radio) { }}
                         <div class="form-check col-sm ">

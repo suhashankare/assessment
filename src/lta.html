@@ -77,19 +77,20 @@
 <script type="text/html" id="tablistWrapperForAccordion">
     <div id="accordion">
     {{ _.each(groupedData, function(key, value) { }}
-
+    <div id="{{=value.toLowerCase().replace(/( & )| /g,'-') }}" class="tab-pane {{=seDefaultTabActive(value) }}">
 
         <div class="card">
-            <div class="card-header">
-                <h2 data-toggle="collapse" data-target="#{{=value.toLowerCase().replace(/( & )| /g,'-') }}-tab">{{=value}}
+            <div >
+                <h2 data-toggle="collapse" data-target="#{{=value.toLowerCase().replace(/( & )| /g,'-') }}-tab">
+                    <span class="icon icon-{{=value.toLowerCase().replace(/( & )| /g,'-') }}"></span> {{=value}}
                 </h2>
             </div>
 
             <div id="{{=value.toLowerCase().replace(/( & )| /g,'-') }}-tab" class="collapse" data-parent="#accordion">
-                <div class="card-body">
+                <div class="">
                     <div>
                         {{ _.each(key, function(row, col) { }}
-                        <div class="card">
+                        <div class="card card-body">
                             <div class="card-header" id="headingOne">
                                 <span class="mb-0 row">
                                     <div class="col-1">{{=col + 1}}.</div>
@@ -102,7 +103,8 @@
                                 <div class="card-body row ">
                                     {{ _.forEach(userSelection, function(titleName, radio) { }}
                                     <div class="form-check col-sm ">
-                                        <input type="radio" id="{{=value.toLowerCase().replace(/( & )| /g,'-') }}-{{=col}}{{=radio}}" name="radio-group-{{=value.toLowerCase().replace(/( & )| /g,'-') }}-{{=col}}">
+                                        <input type="radio" id="{{=value.toLowerCase().replace(/( & )| /g,'-') }}-{{=col}}{{=radio}}"
+                                               name="radio-group-{{=value.toLowerCase().replace(/( & )| /g,'-') }}-{{=col}}">
                                         <label for="{{=value.toLowerCase().replace(/( & )| /g,'-') }}-{{=col}}{{=radio}}">
                                             {{= titleName}}</label>
                                     </div>
@@ -116,10 +118,11 @@
             </div>
         </div>
 
-
-    {{ }); }}
     </div>
 
+    {{ }); }}
+
+    </div>
 </script>
 
 <div class="container-fluid" data-custome-path="lta">

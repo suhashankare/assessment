@@ -244,6 +244,16 @@ h2 {
 #myTabContent #page1 .not-complete .custom-badge, #myTabContent #page2 .not-complete .custom-badge {
   display: block !important; }
 
+#myTabContent .card-header:first-child {
+  border-radius: 0;
+  padding-bottom: 10px; }
+
+#myTabContent #accordion h2 {
+  font-size: 24px;
+  border-radius: 1px; }
+  #myTabContent #accordion h2 span .icon {
+    filter: invert(0%) !important; }
+
 .card-header:first-child {
   border-radius: 0; }
 

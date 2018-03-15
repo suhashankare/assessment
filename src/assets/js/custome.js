@@ -109,7 +109,7 @@ $(document).on('change', 'input[type=radio]', function () {
     var getName = $thisName.replace(/radio-group-/, '').replace(/-\d/, '');
     //var checkTabNameInTheTabList = tabList.indexOf ( getName );
     var getNode = selectionData[getName];
-console.log($thisName);
+
     //  Update Class Check for tab error validation
     $(this).closest('tr').removeClass('not-selected').addClass('selected-ok');
     $(this).closest('div.collapse').removeClass('not-selected').addClass('selected-ok');

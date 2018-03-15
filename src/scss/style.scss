@@ -331,6 +331,23 @@ h2{
         }
       }
     }
+
+  .card-header:first-child {
+    border-radius: 0;
+    padding-bottom: 10px;
+  }
+
+  #accordion {
+    h2 {
+      font-size: 24px;
+      border-radius: 1px;
+      span{
+        .icon{
+          filter: invert(0%) !important;
+        }
+      }
+    }
+  }
   }
 
 .card-header:first-child{

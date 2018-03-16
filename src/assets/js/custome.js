@@ -40,6 +40,17 @@ $(document).on('show.bs.tab', $('a[data-toggle="tab"]'), function (e) {
     }
 });
 
+$('#myTabContent').on('show.bs.collapse', function (e) {
+  var $target  = $(e.target);
+
+  if($target.hasClass('visited')){
+      $target.closest('div.card').find('.header').find('.custom-badge').show()
+    $target.addClass('not-complete');
+  }else{
+    $target.addClass('visited');
+  }
+})
+
 /**
  * default progress bar status
  */
@@ -170,10 +181,10 @@ function manipulateProgressbar() {
  */
 var modelLaunchCounter = 0;
 function modelLauncher() {
-  modelLaunchCounter ++;
-    if(modelLaunchCounter > 0){
-      $('#completeModal').modal('show');
 
+    if(modelLaunchCounter === 0){
+      modelLaunchCounter = 1;
+      $('#completeModal').modal('show');
     }
 }
 
@@ -261,9 +272,9 @@ window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        document.getElementById("topBtn").style.display = "block";
+        $("#topBtn").show()
     } else {
-        document.getElementById("topBtn").style.display = "none";
+        $("#topBtn").hide()
     }
 }
 

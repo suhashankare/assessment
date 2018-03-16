@@ -80,10 +80,11 @@
     <div id="{{=value.toLowerCase().replace(/( & )| /g,'-') }}" class="tab-pane {{=seDefaultTabActive(value) }}">
 
         <div class="card">
-            <div >
+            <div class="header">
                 <h2 data-toggle="collapse" data-target="#{{=value.toLowerCase().replace(/( & )| /g,'-') }}-tab">
                     <span class="icon icon-{{=value.toLowerCase().replace(/( & )| /g,'-') }}"></span> {{=value}}
                 </h2>
+                <span class="custom-badge badge badge-warning">&#9888;</span>
             </div>
 
             <div id="{{=value.toLowerCase().replace(/( & )| /g,'-') }}-tab" class="collapse" data-parent="#accordion">
@@ -220,8 +221,8 @@
                     You have completed Agile STA Assessment
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Review all Questions Answer</button>
-                    <button type="button" class="btn btn-primary"> Okey! Submit My Assessment</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Review</button>
+                    <button type="button" class="btn btn-primary">Submit</button>
                 </div>
             </div>
         </div>

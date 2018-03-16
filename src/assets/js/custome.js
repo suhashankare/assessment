@@ -133,7 +133,7 @@ $(document).on('change', 'input[type=radio]', function () {
     /**
      * initialise model box
      */
-    if (updateProgressBar() === 1) {
+    if (updateProgressBar() === totalCunt) {
         $('.btnNext, .btnLtaNext').text('Submit').removeAttr('disabled');
         modelLauncher();
 
@@ -254,3 +254,21 @@ var userSelection = ["Strongly Agree", "Agree", "Neutral", "Disagree", "Last", "
  $.ajax(settings).done(function (response) {
  console.log(response);
  });*/
+
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("topBtn").style.display = "block";
+    } else {
+        document.getElementById("topBtn").style.display = "none";
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}

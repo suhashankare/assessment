@@ -133,7 +133,7 @@ $(document).on('change', 'input[type=radio]', function () {
     /**
      * initialise model box
      */
-    if (updateProgressBar() === totalCunt) {
+    if (updateProgressBar() === 1) {
         $('.btnNext, .btnLtaNext').text('Submit').removeAttr('disabled');
         modelLauncher();
 
@@ -168,8 +168,13 @@ function manipulateProgressbar() {
 /**
  * Model Box for confirmation
  */
+var modelLaunchCounter = 0;
 function modelLauncher() {
-    $('#completeModal').modal('show');
+  modelLaunchCounter ++;
+    if(modelLaunchCounter > 0){
+      $('#completeModal').modal('show');
+
+    }
 }
 
 $('.info-icon').popover();

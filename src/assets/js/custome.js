@@ -25,13 +25,11 @@ $(document).on('show.bs.tab', $('a[data-toggle="tab"]'), function (e) {
     var target = $(e.target).attr('href'); // activated tab
     var targetDiv = $(target);
     var $tabModel = $('#tabWarningModel');
-
-    if (currentTabHDiv.find('tr.not-selected, div.collapse').length) {
+    if (currentTabHDiv.find('tr.not-selected, div.collapse.not-selected').length) {
         currentTabHDiv.addClass('not-complete');
         currentTab.closest('.nav-item').addClass('not-complete');
         currentTab.closest('.nav-item').find('.custom-badge').show().html("&#9888;");
     } else {
-
       if(!targetDiv.find('tr.not-selected, div.collapse').length){
         targetDiv.removeClass('not-complete');
         targetDiv.closest('.nav-item').removeClass('not-complete');
@@ -44,7 +42,7 @@ $('#myTabContent').on('show.bs.collapse', function (e) {
   var $target  = $(e.target);
 
   if($target.hasClass('visited')){
-      $target.closest('div.card').find('.header').find('.custom-badge').show()
+      $target.closest('div.card').find('.header').find('.custom-badge').show();
     $target.addClass('not-complete');
   }else{
     $target.addClass('visited');

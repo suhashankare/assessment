@@ -4,7 +4,11 @@
   padding-left: 0;
 
   section {
-    margin: 20px;
+    margin: 10px;
+  }
+
+  section.deviceScreen{
+    margin: 0;
   }
   .nav-pills .nav-link {
     border-radius: 15px 15px 0px 0px;
@@ -382,4 +386,16 @@ h2{
 
 #topBtn:hover {
   background-color:  #285ca4;
+}
+
+.bulletPosition{
+
+  position: absolute;
+  padding: 10px;
+  background: #ccc;
+  left: 0;
+  top: 25px;
+}
+.margin-left-30{
+  margin-left: 30px;
 }
